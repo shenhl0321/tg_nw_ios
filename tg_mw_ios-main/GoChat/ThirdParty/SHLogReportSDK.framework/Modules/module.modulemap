@@ -1,0 +1,6 @@
+framework module SHLogReportSDK {
+  umbrella header "SHLogReportSDK.h"
+
+  export *
+  module * { export * }
+}

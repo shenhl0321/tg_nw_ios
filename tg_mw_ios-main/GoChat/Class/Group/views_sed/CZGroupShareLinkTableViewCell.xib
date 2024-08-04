@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="CZGroupShareLinkTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="407" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享链接" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByY-ML-dgr">
+                        <rect key="frame" x="20" y="15" width="66" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0039215686274509803" green="0.0039215686274509803" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://jk.xxxxxx.com/xxxxxxxxx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ju2-Za-zAd">
+                        <rect key="frame" x="20" y="47" width="317" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.44313725490196076" green="0.46274509803921571" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK6-m9-q6P">
+                        <rect key="frame" x="352" y="19" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="9ge-Dt-H94"/>
+                            <constraint firstAttribute="width" constant="40" id="Yxj-ql-Sre"/>
+                        </constraints>
+                        <state key="normal" image="Qr_code4"/>
+                        <connections>
+                            <action selector="qrcodeClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1aA-KX-1HR"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyD-hj-nL0">
+                        <rect key="frame" x="0.0" y="88" width="407" height="0.0"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" id="DZI-oT-ZIb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="dyD-hj-nL0" secondAttribute="trailing" id="7Fi-Cq-9RH"/>
+                    <constraint firstItem="mK6-m9-q6P" firstAttribute="leading" secondItem="ju2-Za-zAd" secondAttribute="trailing" constant="15" id="JYJ-Lt-vKn"/>
+                    <constraint firstItem="ju2-Za-zAd" firstAttribute="top" secondItem="ByY-ML-dgr" secondAttribute="bottom" constant="12" id="KTa-VL-fBq"/>
+                    <constraint firstItem="ju2-Za-zAd" firstAttribute="leading" secondItem="ByY-ML-dgr" secondAttribute="leading" id="XF9-nm-X81"/>
+                    <constraint firstAttribute="bottom" secondItem="dyD-hj-nL0" secondAttribute="bottom" id="aPb-Wh-qEE"/>
+                    <constraint firstItem="ByY-ML-dgr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="hmf-8j-KFy"/>
+                    <constraint firstItem="ByY-ML-dgr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="nTe-Vf-drN"/>
+                    <constraint firstItem="dyD-hj-nL0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ruE-KF-6GM"/>
+                    <constraint firstAttribute="trailing" secondItem="mK6-m9-q6P" secondAttribute="trailing" constant="15" id="w1o-eG-lKD"/>
+                    <constraint firstItem="mK6-m9-q6P" firstAttribute="centerY" secondItem="ByY-ML-dgr" secondAttribute="centerY" constant="14" id="xUM-8c-M4a"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="linkLabel" destination="ju2-Za-zAd" id="XwM-2R-uqR"/>
+            </connections>
+            <point key="canvasLocation" x="267.39130434782612" y="81.696428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Qr_code4" width="40" height="40"/>
+    </resources>
+</document>

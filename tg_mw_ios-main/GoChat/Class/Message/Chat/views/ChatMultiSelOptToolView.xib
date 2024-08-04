@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChatMultiSelOptToolView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4K-7D-BxT">
+                    <rect key="frame" x="30" y="0.0" width="118" height="60"/>
+                    <state key="normal" image="menu_forword"/>
+                    <state key="disabled" image="menu_forword_disable"/>
+                    <connections>
+                        <action selector="click_forword:" destination="iN0-l3-epB" eventType="touchUpInside" id="0ie-lo-vXp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fze-g4-RdY">
+                    <rect key="frame" x="148" y="0.0" width="118" height="60"/>
+                    <state key="normal" image="menu_revoke"/>
+                    <state key="disabled" image="menu_revoke_disable"/>
+                    <connections>
+                        <action selector="click_revoke:" destination="iN0-l3-epB" eventType="touchUpInside" id="SDs-ug-lrI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXs-LS-dcl">
+                    <rect key="frame" x="148" y="0.0" width="0.0" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" id="AED-4b-2rN"/>
+                    </constraints>
+                    <state key="normal" image="menu_fov"/>
+                    <state key="disabled" image="menu_fov_disable"/>
+                    <connections>
+                        <action selector="click_fov:" destination="iN0-l3-epB" eventType="touchUpInside" id="Et5-N8-ysl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9Z-aX-q0f">
+                    <rect key="frame" x="266" y="0.0" width="118" height="60"/>
+                    <state key="normal" image="menu_delete"/>
+                    <state key="disabled" image="menu_delete_disable"/>
+                    <connections>
+                        <action selector="click_delete:" destination="iN0-l3-epB" eventType="touchUpInside" id="VMN-sZ-ybZ"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMd-V2-CuC" userLabel="hline">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.66666666666666663"/>
+                    <viewLayoutGuide key="safeArea" id="eIP-40-86C"/>
+                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="Emo-xA-bSc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Fze-g4-RdY" firstAttribute="leading" secondItem="DXs-LS-dcl" secondAttribute="trailing" id="3tC-jt-FSi"/>
+                <constraint firstItem="j4K-7D-BxT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="4G5-ff-uOn"/>
+                <constraint firstItem="j4K-7D-BxT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5ZV-k9-4Xm"/>
+                <constraint firstItem="XMd-V2-CuC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7Ot-Zo-HCD"/>
+                <constraint firstItem="Fze-g4-RdY" firstAttribute="width" secondItem="j4K-7D-BxT" secondAttribute="width" id="BZi-qb-pPy"/>
+                <constraint firstItem="Fze-g4-RdY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EOU-bR-4nM"/>
+                <constraint firstItem="XMd-V2-CuC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Eaq-ek-v65"/>
+                <constraint firstItem="Fze-g4-RdY" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="FKw-mE-2Xr"/>
+                <constraint firstItem="j4K-7D-BxT" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Fen-Q9-2w2"/>
+                <constraint firstItem="a9Z-aX-q0f" firstAttribute="width" secondItem="j4K-7D-BxT" secondAttribute="width" id="GNo-5g-oep"/>
+                <constraint firstItem="a9Z-aX-q0f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HPe-js-AOz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="a9Z-aX-q0f" secondAttribute="trailing" constant="30" id="TOc-BR-RmD"/>
+                <constraint firstItem="DXs-LS-dcl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WJd-sv-RKF"/>
+                <constraint firstItem="a9Z-aX-q0f" firstAttribute="leading" secondItem="Fze-g4-RdY" secondAttribute="trailing" id="ZLb-Lt-xPO"/>
+                <constraint firstAttribute="trailing" secondItem="XMd-V2-CuC" secondAttribute="trailing" id="fKl-CX-jPJ"/>
+                <constraint firstItem="DXs-LS-dcl" firstAttribute="leading" secondItem="j4K-7D-BxT" secondAttribute="trailing" id="l9C-za-ck5"/>
+                <constraint firstItem="a9Z-aX-q0f" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="lTy-Xs-nhM"/>
+                <constraint firstItem="DXs-LS-dcl" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="uJE-IF-qyk"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="delBtn" destination="a9Z-aX-q0f" id="nSS-xg-RYD"/>
+                <outlet property="forwordBtn" destination="j4K-7D-BxT" id="n2g-nL-1is"/>
+                <outlet property="fovBtn" destination="DXs-LS-dcl" id="bv6-e1-qr6"/>
+                <outlet property="revokeBtn" destination="Fze-g4-RdY" id="FvL-NO-vxW"/>
+            </connections>
+            <point key="canvasLocation" x="70.09345794392523" y="245.57235421166308"/>
+        </view>
+        <view contentMode="scaleToFill" id="UjU-NY-M5i" customClass="ChatMultiSelOptToolView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xD-16-6EX">
+                    <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="60"/>
+                    <state key="normal" image="menu_forword"/>
+                    <state key="disabled" image="menu_forword_disable"/>
+                    <connections>
+                        <action selector="click_forword:" destination="UjU-NY-M5i" eventType="touchUpInside" id="3CT-ue-oIf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USr-4I-IcC">
+                    <rect key="frame" x="206.99999999999997" y="0.0" width="103.66666666666666" height="60"/>
+                    <state key="normal" image="menu_revoke"/>
+                    <state key="disabled" image="menu_revoke_disable"/>
+                    <connections>
+                        <action selector="click_revoke:" destination="UjU-NY-M5i" eventType="touchUpInside" id="GwM-Dx-dTe"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbv-ze-vp6">
+                    <rect key="frame" x="103.66666666666669" y="0.0" width="103.33333333333331" height="60"/>
+                    <state key="normal" image="menu_fov"/>
+                    <state key="disabled" image="menu_fov_disable"/>
+                    <connections>
+                        <action selector="click_fov:" destination="UjU-NY-M5i" eventType="touchUpInside" id="UAD-qU-C7c"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1h-WY-ky5">
+                    <rect key="frame" x="310.66666666666669" y="0.0" width="103.33333333333331" height="60"/>
+                    <state key="normal" image="menu_delete"/>
+                    <state key="disabled" image="menu_delete_disable"/>
+                    <connections>
+                        <action selector="click_delete:" destination="UjU-NY-M5i" eventType="touchUpInside" id="GnB-Ay-Ufq"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKD-11-Bb7" userLabel="hline">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.66666666666666663"/>
+                    <viewLayoutGuide key="safeArea" id="krL-rH-a7l"/>
+                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="bmV-Wh-XsE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Zzy-4a-Otj"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="p1h-WY-ky5" firstAttribute="bottom" secondItem="Zzy-4a-Otj" secondAttribute="bottom" id="5Pp-6C-LAu"/>
+                <constraint firstItem="RKD-11-Bb7" firstAttribute="top" secondItem="UjU-NY-M5i" secondAttribute="top" id="635-9T-DAB"/>
+                <constraint firstItem="p1h-WY-ky5" firstAttribute="top" secondItem="UjU-NY-M5i" secondAttribute="top" id="8wT-LO-BMy"/>
+                <constraint firstItem="USr-4I-IcC" firstAttribute="leading" secondItem="Cbv-ze-vp6" secondAttribute="trailing" id="GbE-mW-vkD"/>
+                <constraint firstItem="RKD-11-Bb7" firstAttribute="leading" secondItem="UjU-NY-M5i" secondAttribute="leading" id="Iy6-FV-TW7"/>
+                <constraint firstItem="Cbv-ze-vp6" firstAttribute="top" secondItem="UjU-NY-M5i" secondAttribute="top" id="J3p-Q0-arH"/>
+                <constraint firstItem="Cbv-ze-vp6" firstAttribute="bottom" secondItem="Zzy-4a-Otj" secondAttribute="bottom" id="JFi-OU-Wvd"/>
+                <constraint firstItem="USr-4I-IcC" firstAttribute="top" secondItem="UjU-NY-M5i" secondAttribute="top" id="OAh-fi-EUd"/>
+                <constraint firstItem="5xD-16-6EX" firstAttribute="leading" secondItem="Zzy-4a-Otj" secondAttribute="leading" id="S9O-X9-IGS"/>
+                <constraint firstItem="p1h-WY-ky5" firstAttribute="leading" secondItem="USr-4I-IcC" secondAttribute="trailing" id="SWd-ox-mSG"/>
+                <constraint firstItem="5xD-16-6EX" firstAttribute="bottom" secondItem="Zzy-4a-Otj" secondAttribute="bottom" id="TF7-dV-nv1"/>
+                <constraint firstAttribute="trailing" secondItem="RKD-11-Bb7" secondAttribute="trailing" id="aMb-w0-YAT"/>
+                <constraint firstItem="USr-4I-IcC" firstAttribute="bottom" secondItem="Zzy-4a-Otj" secondAttribute="bottom" id="bX5-yY-lN4"/>
+                <constraint firstItem="Zzy-4a-Otj" firstAttribute="trailing" secondItem="p1h-WY-ky5" secondAttribute="trailing" id="fyE-XP-MT1"/>
+                <constraint firstItem="USr-4I-IcC" firstAttribute="width" secondItem="5xD-16-6EX" secondAttribute="width" id="iNc-UR-Gzz"/>
+                <constraint firstItem="Cbv-ze-vp6" firstAttribute="width" secondItem="5xD-16-6EX" secondAttribute="width" id="k1U-pv-n3p"/>
+                <constraint firstItem="Cbv-ze-vp6" firstAttribute="leading" secondItem="5xD-16-6EX" secondAttribute="trailing" id="vep-3f-awJ"/>
+                <constraint firstItem="p1h-WY-ky5" firstAttribute="width" secondItem="5xD-16-6EX" secondAttribute="width" id="yST-U9-R35"/>
+                <constraint firstItem="5xD-16-6EX" firstAttribute="top" secondItem="UjU-NY-M5i" secondAttribute="top" id="yjq-oI-wpr"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="delBtn" destination="p1h-WY-ky5" id="Ncl-8J-1Qi"/>
+                <outlet property="forwordBtn" destination="5xD-16-6EX" id="2IJ-mq-up0"/>
+                <outlet property="fovBtn" destination="Cbv-ze-vp6" id="kUl-dT-ojk"/>
+                <outlet property="revokeBtn" destination="USr-4I-IcC" id="mhP-xn-ZOu"/>
+            </connections>
+            <point key="canvasLocation" x="70.09345794392523" y="245.57235421166308"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="menu_delete" width="17" height="17"/>
+        <image name="menu_delete_disable" width="24" height="24"/>
+        <image name="menu_forword" width="17" height="17"/>
+        <image name="menu_forword_disable" width="24" height="24"/>
+        <image name="menu_fov" width="17" height="17"/>
+        <image name="menu_fov_disable" width="24" height="24"/>
+        <image name="menu_revoke" width="17" height="17"/>
+        <image name="menu_revoke_disable" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="dFP-lP-OQG" customClass="EmojiContainer">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TwZ-BO-TRw">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2qy-eG-tPP">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                    <connections>
+                        <outlet property="dataSource" destination="dFP-lP-OQG" id="WIt-FX-1hb"/>
+                        <outlet property="delegate" destination="dFP-lP-OQG" id="WF6-Xh-E2E"/>
+                    </connections>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-aN-S31" userLabel="Button Container">
+                    <rect key="frame" x="294" y="200" width="120" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4u-pz-Uc4" userLabel="Send">
+                            <rect key="frame" x="50" y="3" width="60" height="34"/>
+                            <color key="backgroundColor" red="0.0" green="0.77647058820000003" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="m0U-oP-Kd5"/>
+                                <constraint firstAttribute="height" constant="34" id="oKC-np-3Og"/>
+                            </constraints>
+                            <state key="normal" title="发送">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="send:" destination="dFP-lP-OQG" eventType="touchUpInside" id="hpH-eh-YrA"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dm-SV-rRM" userLabel="Del">
+                            <rect key="frame" x="0.0" y="3" width="40" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="OFN-2k-CkL"/>
+                                <constraint firstAttribute="height" constant="34" id="kyn-PT-WmP"/>
+                            </constraints>
+                            <state key="normal" image="icon_emoji_del">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="del:" destination="dFP-lP-OQG" eventType="touchUpInside" id="38O-je-VER"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="N4u-pz-Uc4" firstAttribute="leading" secondItem="9dm-SV-rRM" secondAttribute="trailing" constant="10" id="3rC-hW-4qx"/>
+                        <constraint firstItem="9dm-SV-rRM" firstAttribute="centerY" secondItem="N4u-pz-Uc4" secondAttribute="centerY" id="6tg-2O-kJf"/>
+                        <constraint firstAttribute="height" constant="40" id="LkZ-0g-MHt"/>
+                        <constraint firstAttribute="trailing" secondItem="N4u-pz-Uc4" secondAttribute="trailing" constant="10" id="Tup-ok-O7i"/>
+                        <constraint firstAttribute="width" constant="120" id="pfl-cc-e3p" userLabel="width = 140"/>
+                        <constraint firstItem="N4u-pz-Uc4" firstAttribute="centerY" secondItem="9ml-aN-S31" secondAttribute="centerY" id="rOc-OI-Aem"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Zxj-TX-Ufw"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Zxj-TX-Ufw" firstAttribute="bottom" secondItem="9ml-aN-S31" secondAttribute="bottom" id="1Is-sp-KWv"/>
+                <constraint firstItem="TwZ-BO-TRw" firstAttribute="leading" secondItem="dFP-lP-OQG" secondAttribute="leading" id="ZJg-c4-mGI"/>
+                <constraint firstItem="Zxj-TX-Ufw" firstAttribute="bottom" secondItem="TwZ-BO-TRw" secondAttribute="bottom" id="jjY-h1-RDh"/>
+                <constraint firstItem="TwZ-BO-TRw" firstAttribute="top" secondItem="dFP-lP-OQG" secondAttribute="top" id="r9e-XH-XA5"/>
+                <constraint firstAttribute="trailing" secondItem="TwZ-BO-TRw" secondAttribute="trailing" id="zMO-rD-teU"/>
+                <constraint firstItem="Zxj-TX-Ufw" firstAttribute="trailing" secondItem="9ml-aN-S31" secondAttribute="trailing" id="zWF-5u-3Bt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectionView" destination="TwZ-BO-TRw" id="h3L-wb-r5Q"/>
+                <outlet property="delButton" destination="9dm-SV-rRM" id="WBK-HC-eKf"/>
+                <outlet property="sendButton" destination="N4u-pz-Uc4" id="5b8-De-YKW"/>
+            </connections>
+            <point key="canvasLocation" x="13" y="537"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_emoji_del" width="20" height="20"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,6 @@
+framework module SHSDKFoundation {
+  umbrella header "SHSDKFoundation.h"
+
+  export *
+  module * { export * }
+}

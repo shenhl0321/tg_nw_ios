@@ -1,0 +1,163 @@
+//
+//  GC_ReceiveRecordVC.m
+//  GoChat
+//
+//  Created by wangfeiPro on 2021/12/14.
+//
+
+#import "GC_ReceiveRecordVC.h"
+#import "GC_ReceiveTopCell.h"
+#import "GC_RedRecordCell.h"
+//#import "RpHistoryItemCell.h"
+#import "RedPacketDetailViewController.h"
+
+@interface GC_ReceiveRecordVC ()
+
+@property (nonatomic, strong)NSMutableArray *orderList;
+@property (nonatomic, assign)NSInteger total;
+@property (nonatomic, assign)double totalPrice;
+
+@end
+
+@implementation GC_ReceiveRecordVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.customNavBar.hidden = YES;
+    // Do any additional setup after loading the view.
+    [self initUI];
+    
+}
+
+- (void)initUI{
+
+    [self.view addSubview:self.tableView];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"GC_ReceiveTopCell" bundle:nil] forCellReuseIdentifier:@"GC_ReceiveTopCell"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"GC_RedRecordCell" bundle:nil] forCellReuseIdentifier:@"GC_RedRecordCell"];
+//    [self.tableView registerClass:[RpHistoryItemCell class] forCellReuseIdentifier:@"item"];
+    
+    self.tableView.backgroundColor = [UIColor colorForF5F9FA];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(0);
+        make.top.mas_equalTo(0);
+    }];
+    //设置下拉刷新
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    [self refreshData];
+}
+
+#pragma mark - request
+- (void)requestData:(int)page
+{
+    
+    [[TelegramManager shareInstance] queryRedHistoryCall:2 count:WT_ORDER_PAGE_COUNT page:page resultBlock:^(NSDictionary *request, NSDictionary *response, id obj) {
+        self.total = 0;
+        self.totalPrice = 0.;
+        if(page == 1)
+        {
+            //clean
+            [self.orderList removeAllObjects];
+        }
+        
+        NSArray *list = obj;
+        if(list.count>0)
+        {
+            [self.orderList addObjectsFromArray:list];
+        }
+        
+        for (RedPacketInfo *info in self.orderList) {
+            RedPacketPickUser *gotUser = [info curUserRp];
+            BOOL isBest = info.type==2&&info.users.count>=info.count&&gotUser.price>=info.bestPrice;
+            if (isBest) {
+                self.total = self.total + 1;
+            }
+            self.totalPrice = gotUser.price + self.totalPrice;
+        }
+        
+        [self.tableView reloadData];
+        
+        
+        [self.tableView.mj_header endRefreshing];
+   
+    } timeout:^(NSDictionary *request) {
+        [self.tableView.mj_header endRefreshing];
+       
+    }];
+}
+
+- (void)refreshData
+{
+    [self requestData:1];
+}
+
+- (void)startLoadingMore
+{
+    [self requestData:(int)(self.orderList.count/WT_ORDER_PAGE_COUNT+1)];
+}
+
+- (NSMutableArray *)orderList
+{
+    if(_orderList == nil)
+    {
+        _orderList = [NSMutableArray array];
+    }
+    return _orderList;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        return 1;
+    }
+    return self.orderList.count;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        GC_ReceiveTopCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GC_ReceiveTopCell"];
+        cell.subTitleLab.text = @"一共收到".lv_localized;
+        cell.priceLab.text = [NSString stringWithFormat:@"¥%2.f",self.totalPrice];
+        cell.numLab.text = [NSString stringWithFormat:@"收到红包%ld个   |   手气最佳%ld个".lv_localized,self.orderList.count,self.total];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    
+    GC_RedRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GC_RedRecordCell" forIndexPath:indexPath];
+    [cell resetRpInfo:[self.orderList objectAtIndex:indexPath.row] isSendRp:NO];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 265.;
+    }
+    return 87.;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *rpSb = [UIStoryboard storyboardWithName:@"RedPacket" bundle:nil];
+    RedPacketDetailViewController *v = [rpSb instantiateViewControllerWithIdentifier:@"RedPacketDetailViewController"];
+    v.rpInfo = [self.orderList objectAtIndex:indexPath.row];
+    v.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:v animated:YES];
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="130" id="KGk-i7-Jjw" customClass="CZChatTisTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="363" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="363" height="130"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPE-ta-RXE">
+                        <rect key="frame" x="30" y="40" width="303" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The current conversation is protected by %@ end-to-end encryption" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGy-Dv-byu">
+                                <rect key="frame" x="10" y="6" width="283" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="250" id="BeX-DA-bp8"/>
+                            <constraint firstItem="DGy-Dv-byu" firstAttribute="leading" secondItem="IPE-ta-RXE" secondAttribute="leading" constant="10" id="cHp-57-cYW"/>
+                            <constraint firstItem="DGy-Dv-byu" firstAttribute="centerX" secondItem="IPE-ta-RXE" secondAttribute="centerX" id="dsd-Rm-Qny"/>
+                            <constraint firstItem="DGy-Dv-byu" firstAttribute="centerY" secondItem="IPE-ta-RXE" secondAttribute="centerY" id="mPk-Ht-GRA"/>
+                            <constraint firstAttribute="trailing" secondItem="DGy-Dv-byu" secondAttribute="trailing" constant="10" id="tCX-Ve-Nap"/>
+                            <constraint firstAttribute="height" constant="50" id="xLV-xd-mbD"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BeX-DA-bp8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="IPE-ta-RXE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="B88-eJ-ces"/>
+                    <constraint firstItem="IPE-ta-RXE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NZa-ti-r02"/>
+                    <constraint firstItem="IPE-ta-RXE" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="NnJ-us-4Lh"/>
+                    <constraint firstAttribute="trailing" secondItem="IPE-ta-RXE" secondAttribute="trailing" constant="30" id="So9-5r-cUk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bgHC" destination="xLV-xd-mbD" id="Lco-t9-aXt"/>
+                <outlet property="bgView" destination="IPE-ta-RXE" id="4CR-Vr-v4w"/>
+                <outlet property="contentLabel" destination="DGy-Dv-byu" id="mFg-FZ-rhk"/>
+            </connections>
+            <point key="canvasLocation" x="139.85507246376812" y="84.375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

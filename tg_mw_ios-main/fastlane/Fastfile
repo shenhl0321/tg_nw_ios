@@ -1,0 +1,36 @@
+
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "fir lane"
+  lane :fir do
+    gym(scheme: "GoChat",
+        include_bitcode: false,
+        export_method: "ad-hoc",                                 
+        output_directory: "~/Desktop/App 打包存放/GoChat/",
+        silent: true,
+        include_symbols: true,
+    )
+    firim(firim_api_token: "87acf8077809886bc01976655cc70eb8",
+        firim_api_url: "http://api.jappstore.com"
+      )
+  end
+
+desc "fir lane blue"
+  lane :fir_blue do
+    gym(scheme: "Blue",
+        include_bitcode: false,
+        export_method: "ad-hoc",                                 
+        output_directory: "~/Desktop/App 打包存放/GoChat/",
+        silent: true,
+        include_symbols: true,
+    )
+    firim(firim_api_token: "87acf8077809886bc01976655cc70eb8",
+        firim_api_url: "http://api.jappstore.com"
+      )
+  end
+end

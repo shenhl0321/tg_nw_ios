@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GC_SetPwResultVC">
+            <connections>
+                <outlet property="nextBtn" destination="nP5-Cg-Uat" id="ctt-ur-8Ug"/>
+                <outlet property="setLab" destination="hvX-4n-aUN" id="6U8-nK-Rnp"/>
+                <outlet property="statusLab" destination="16j-X4-tlD" id="2tH-Mw-vHj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Success" translatesAutoresizingMaskIntoConstraints="NO" id="5Wa-Sc-fUZ">
+                    <rect key="frame" x="157" y="113" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="mSB-7t-5od"/>
+                        <constraint firstAttribute="height" constant="100" id="nTf-cd-VQc"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvX-4n-aUN">
+                    <rect key="frame" x="172.5" y="228" width="69.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已重置成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16j-X4-tlD">
+                    <rect key="frame" x="155" y="254" width="104" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nP5-Cg-Uat">
+                    <rect key="frame" x="30" y="475" width="354" height="55"/>
+                    <color key="backgroundColor" red="0.0" green="0.77647058820000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="L5m-Ip-laM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="完成"/>
+                    <connections>
+                        <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="4eC-gB-VSw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="16j-X4-tlD" firstAttribute="top" secondItem="hvX-4n-aUN" secondAttribute="bottom" constant="5" id="CtB-tk-14q"/>
+                <constraint firstItem="nP5-Cg-Uat" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="Igm-id-ZaF"/>
+                <constraint firstItem="hvX-4n-aUN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="J5y-gZ-mOb"/>
+                <constraint firstItem="nP5-Cg-Uat" firstAttribute="top" secondItem="16j-X4-tlD" secondAttribute="bottom" constant="200" id="JGn-d1-HmN"/>
+                <constraint firstItem="16j-X4-tlD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PW2-Jo-8zZ"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="nP5-Cg-Uat" secondAttribute="trailing" constant="30" id="UZX-7Y-vf3"/>
+                <constraint firstItem="5Wa-Sc-fUZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hv2-PT-2Hc"/>
+                <constraint firstItem="hvX-4n-aUN" firstAttribute="top" secondItem="5Wa-Sc-fUZ" secondAttribute="bottom" constant="15" id="nqo-2t-cGf"/>
+                <constraint firstItem="5Wa-Sc-fUZ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="65" id="vUP-Ru-ve2"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="44"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Success" width="100" height="100"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CZRegisterBtnView">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="171"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m51-df-9f1">
+                    <rect key="frame" x="60" y="125" width="300" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Jwq-xA-UjY"/>
+                        <constraint firstAttribute="width" constant="300" id="x5q-om-yeJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="注册" backgroundImage="commombtnbg">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="m51-df-9f1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5Ac-Gm-1Ox"/>
+                <constraint firstAttribute="bottom" secondItem="m51-df-9f1" secondAttribute="bottom" constant="2" id="b5G-1u-aq5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="registerBtn" destination="m51-df-9f1" id="CWV-pc-w4N"/>
+            </connections>
+            <point key="canvasLocation" x="323.1884057971015" y="-84.040178571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="commombtnbg" width="300" height="44"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

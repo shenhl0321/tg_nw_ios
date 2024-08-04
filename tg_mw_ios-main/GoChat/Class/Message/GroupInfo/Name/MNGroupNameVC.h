@@ -1,0 +1,16 @@
+//
+//  MNGroupNameVC.h
+//  GoChat
+//
+//  Created by 许蒙静 on 2021/12/25.
+//
+
+#import "BaseVC.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MNGroupNameVC : BaseVC
+@property (nonatomic, strong) ChatInfo *chat;
+@end
+
+NS_ASSUME_NONNULL_END

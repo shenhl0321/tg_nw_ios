@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GotRpContentDialog">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="439"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReK-Az-4Nv">
+                    <rect key="frame" x="62.5" y="0.0" width="250" height="390"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rp_dialog_bg" translatesAutoresizingMaskIntoConstraints="NO" id="aei-Cf-v0T">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="390"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDi-gb-1Qn">
+                            <rect key="frame" x="80" y="234" width="90" height="92"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" image="rp_dialog_got"/>
+                            <connections>
+                                <action selector="click_got:" destination="iN0-l3-epB" eventType="touchUpInside" id="3g3-mw-zr2"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿离发出的现金红包" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tas-Py-pOq">
+                            <rect key="frame" x="10" y="80" width="230" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="1" green="0.80784313725490198" blue="0.59999999999999998" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜发财, 大吉大利" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGx-EV-7s3">
+                            <rect key="frame" x="10" y="118" width="230" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <color key="textColor" red="1" green="0.80784313730000001" blue="0.59999999999999998" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6J8-7j-1qc">
+                            <rect key="frame" x="79" y="359" width="92" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="查看领取详情" image="rp_dialog_right">
+                                <color key="titleColor" red="1" green="0.80784313730000001" blue="0.59999999999999998" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="click_detail:" destination="iN0-l3-epB" eventType="touchUpInside" id="SKr-wW-WP3"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="qDi-gb-1Qn" secondAttribute="bottom" constant="64" id="2Zw-Uv-3KU"/>
+                        <constraint firstItem="aei-Cf-v0T" firstAttribute="leading" secondItem="ReK-Az-4Nv" secondAttribute="leading" id="7ec-Ad-LXX"/>
+                        <constraint firstItem="tas-Py-pOq" firstAttribute="leading" secondItem="ReK-Az-4Nv" secondAttribute="leading" constant="10" id="BWD-3K-36s"/>
+                        <constraint firstAttribute="width" constant="250" id="C14-mQ-YbS"/>
+                        <constraint firstAttribute="trailing" secondItem="aei-Cf-v0T" secondAttribute="trailing" id="CKM-EJ-CUq"/>
+                        <constraint firstItem="qDi-gb-1Qn" firstAttribute="centerX" secondItem="ReK-Az-4Nv" secondAttribute="centerX" id="Dcb-LO-uws"/>
+                        <constraint firstItem="tas-Py-pOq" firstAttribute="centerX" secondItem="ReK-Az-4Nv" secondAttribute="centerX" id="JeW-WN-TE2"/>
+                        <constraint firstItem="LGx-EV-7s3" firstAttribute="top" secondItem="tas-Py-pOq" secondAttribute="bottom" constant="20" id="K5z-NY-J4F"/>
+                        <constraint firstAttribute="trailing" secondItem="tas-Py-pOq" secondAttribute="trailing" constant="10" id="M5m-sb-Wix"/>
+                        <constraint firstAttribute="height" constant="390" id="PUB-P8-Ta2"/>
+                        <constraint firstItem="LGx-EV-7s3" firstAttribute="leading" secondItem="ReK-Az-4Nv" secondAttribute="leading" constant="10" id="TNH-Z9-qDV"/>
+                        <constraint firstAttribute="bottom" secondItem="aei-Cf-v0T" secondAttribute="bottom" id="Tp9-uX-Trf"/>
+                        <constraint firstItem="tas-Py-pOq" firstAttribute="top" secondItem="ReK-Az-4Nv" secondAttribute="top" constant="80" id="XX7-Sq-qJ0"/>
+                        <constraint firstItem="6J8-7j-1qc" firstAttribute="centerX" secondItem="ReK-Az-4Nv" secondAttribute="centerX" id="Yzf-6c-xah"/>
+                        <constraint firstAttribute="trailing" secondItem="LGx-EV-7s3" secondAttribute="trailing" constant="10" id="wfb-TG-d2N"/>
+                        <constraint firstAttribute="bottom" secondItem="6J8-7j-1qc" secondAttribute="bottom" constant="15" id="yC0-r4-dIf"/>
+                        <constraint firstItem="aei-Cf-v0T" firstAttribute="top" secondItem="ReK-Az-4Nv" secondAttribute="top" id="yDT-6y-efJ"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atA-Bk-5qc">
+                    <rect key="frame" x="170.5" y="405" width="34" height="34"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" image="rp_dialog_close"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="atA-Bk-5qc" firstAttribute="top" secondItem="ReK-Az-4Nv" secondAttribute="bottom" constant="15" id="FOQ-4B-kHC"/>
+                <constraint firstItem="atA-Bk-5qc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TBc-W4-3FF"/>
+                <constraint firstItem="ReK-Az-4Nv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="To0-ZT-BvX"/>
+                <constraint firstItem="ReK-Az-4Nv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qqR-Cq-MbS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="closeBtn" destination="atA-Bk-5qc" id="Pkp-fA-iVI"/>
+                <outlet property="desLabel" destination="tas-Py-pOq" id="vTd-Qk-nDO"/>
+                <outlet property="detailBtn" destination="6J8-7j-1qc" id="lXm-9y-uhB"/>
+                <outlet property="gotBtn" destination="qDi-gb-1Qn" id="5Ed-FC-1gY"/>
+                <outlet property="titleLabel" destination="LGx-EV-7s3" id="CJX-vJ-Ndk"/>
+            </connections>
+            <point key="canvasLocation" x="-108" y="0.44977511244377816"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="rp_dialog_bg" width="250" height="390"/>
+        <image name="rp_dialog_close" width="34" height="34"/>
+        <image name="rp_dialog_got" width="90" height="92"/>
+        <image name="rp_dialog_right" width="12" height="12"/>
+    </resources>
+</document>

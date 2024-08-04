@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="CZChoiceCountyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="388" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="388" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTa-wf-ejp">
+                        <rect key="frame" x="37" y="59.5" width="314" height="0.5"/>
+                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="TcM-SZ-6x5"/>
+                        </constraints>
+                    </view>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-ou-lGK">
+                        <rect key="frame" x="137" y="19.5" width="214" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="6ag-Yx-kSr"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="RHq-ot-FLl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyk-E0-azw">
+                        <rect key="frame" x="37" y="19.5" width="80" height="40"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="login_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="hXQ-KW-cYV">
+                                <rect key="frame" x="56" y="14" width="12" height="12"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+86" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWv-bT-vFP">
+                                <rect key="frame" x="9" y="9.5" width="32" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcs-pl-5iJ">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                <connections>
+                                    <action selector="countryChoiceClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dl4-NE-EPg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qcs-pl-5iJ" firstAttribute="centerY" secondItem="hyk-E0-azw" secondAttribute="centerY" id="33j-De-t9k"/>
+                            <constraint firstItem="hXQ-KW-cYV" firstAttribute="centerY" secondItem="XWv-bT-vFP" secondAttribute="centerY" id="7V6-c3-QcJ"/>
+                            <constraint firstAttribute="height" constant="40" id="CqC-mp-xau"/>
+                            <constraint firstItem="hXQ-KW-cYV" firstAttribute="leading" secondItem="XWv-bT-vFP" secondAttribute="trailing" constant="15" id="TV5-H2-qrN"/>
+                            <constraint firstAttribute="width" constant="80" id="apQ-0H-Er4"/>
+                            <constraint firstItem="XWv-bT-vFP" firstAttribute="centerY" secondItem="hyk-E0-azw" secondAttribute="centerY" id="awl-pX-fjq"/>
+                            <constraint firstItem="XWv-bT-vFP" firstAttribute="centerX" secondItem="hyk-E0-azw" secondAttribute="centerX" constant="-15" id="dsn-Cc-1xi"/>
+                            <constraint firstItem="qcs-pl-5iJ" firstAttribute="centerX" secondItem="hyk-E0-azw" secondAttribute="centerX" id="epx-G8-Bz1"/>
+                            <constraint firstItem="qcs-pl-5iJ" firstAttribute="width" secondItem="hyk-E0-azw" secondAttribute="width" id="f1Z-0B-MxW"/>
+                            <constraint firstItem="qcs-pl-5iJ" firstAttribute="height" secondItem="hyk-E0-azw" secondAttribute="height" id="uCd-RB-hIl"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WTa-wf-ejp" firstAttribute="leading" secondItem="hyk-E0-azw" secondAttribute="leading" id="04N-2J-Rpg"/>
+                    <constraint firstItem="WTa-wf-ejp" firstAttribute="top" secondItem="z5z-ou-lGK" secondAttribute="bottom" id="0m0-hY-1uZ"/>
+                    <constraint firstAttribute="trailing" secondItem="WTa-wf-ejp" secondAttribute="trailing" constant="37" id="W8z-JG-m85"/>
+                    <constraint firstItem="WTa-wf-ejp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="37" id="Y4b-lh-h86"/>
+                    <constraint firstItem="WTa-wf-ejp" firstAttribute="top" secondItem="hyk-E0-azw" secondAttribute="bottom" id="ZBA-Ge-95o"/>
+                    <constraint firstItem="z5z-ou-lGK" firstAttribute="leading" secondItem="hyk-E0-azw" secondAttribute="trailing" constant="20" id="c03-s4-A7L"/>
+                    <constraint firstAttribute="bottom" secondItem="WTa-wf-ejp" secondAttribute="bottom" id="oWi-Vd-eYq"/>
+                    <constraint firstItem="z5z-ou-lGK" firstAttribute="trailing" secondItem="WTa-wf-ejp" secondAttribute="trailing" id="zU6-2c-c82"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="areaCodeLabel" destination="XWv-bT-vFP" id="lhC-yF-oHb"/>
+                <outlet property="countryLabel" destination="XWv-bT-vFP" id="bbB-SL-Z4v"/>
+                <outlet property="inputField" destination="z5z-ou-lGK" id="Oxw-hY-R58"/>
+            </connections>
+            <point key="canvasLocation" x="169.56521739130437" y="157.70089285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="login_arrow_down" width="12" height="12"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

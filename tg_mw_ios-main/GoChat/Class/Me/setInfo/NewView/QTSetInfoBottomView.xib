@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QTSetInfoBottomView">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y18-s7-iWH">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=""/>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="iJh-Fj-tdp"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSn-88-dU3" customClass="YCShadowView">
+                    <rect key="frame" x="0.0" y="592" width="393" height="260"/>
+                    <subviews>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9U6-zk-ny5">
+                            <rect key="frame" x="0.0" y="0.0" width="61" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="jCX-YM-Vyf"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="F1S-V4-f5O"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htf-d4-YT5">
+                            <rect key="frame" x="183" y="20.333333333333371" width="27.333333333333343" height="19.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zw5-7K-HrD">
+                            <rect key="frame" x="325" y="15" width="53" height="30"/>
+                            <color key="backgroundColor" red="0.030430506993006992" green="0.81176470588235294" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="CLM-7V-4pP"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="完成">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="YWx-aQ-7dE"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EwH-JV-he7">
+                            <rect key="frame" x="15" y="70" width="363" height="42"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hAO-gi-ZFz">
+                                    <rect key="frame" x="15" y="0.0" width="299" height="42"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gey-dK-hPp">
+                                    <rect key="frame" x="314" y="0.0" width="49" height="42"/>
+                                    <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="TFClear"/>
+                                    <connections>
+                                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="o8c-7k-gwU"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.96078431372549022" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="5ch-ei-eck"/>
+                                <constraint firstItem="gey-dK-hPp" firstAttribute="leading" secondItem="hAO-gi-ZFz" secondAttribute="trailing" id="8cq-j7-zSc"/>
+                                <constraint firstAttribute="bottom" secondItem="gey-dK-hPp" secondAttribute="bottom" id="A50-ia-Zfj"/>
+                                <constraint firstAttribute="trailing" secondItem="gey-dK-hPp" secondAttribute="trailing" id="DkI-7S-y7b"/>
+                                <constraint firstItem="hAO-gi-ZFz" firstAttribute="top" secondItem="EwH-JV-he7" secondAttribute="top" id="QUq-E4-ND0"/>
+                                <constraint firstAttribute="bottom" secondItem="hAO-gi-ZFz" secondAttribute="bottom" id="Vsy-SE-H8T"/>
+                                <constraint firstItem="gey-dK-hPp" firstAttribute="top" secondItem="EwH-JV-he7" secondAttribute="top" id="XMk-19-iP3"/>
+                                <constraint firstItem="hAO-gi-ZFz" firstAttribute="leading" secondItem="EwH-JV-he7" secondAttribute="leading" constant="15" id="YyG-vy-dvw"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Zw5-7K-HrD" firstAttribute="centerY" secondItem="9U6-zk-ny5" secondAttribute="centerY" id="2JE-Sa-lZF"/>
+                        <constraint firstItem="EwH-JV-he7" firstAttribute="leading" secondItem="KSn-88-dU3" secondAttribute="leading" constant="15" id="HIJ-Gl-sOb"/>
+                        <constraint firstItem="Htf-d4-YT5" firstAttribute="centerX" secondItem="KSn-88-dU3" secondAttribute="centerX" id="OFx-Cu-SjI"/>
+                        <constraint firstItem="Htf-d4-YT5" firstAttribute="centerY" secondItem="9U6-zk-ny5" secondAttribute="centerY" id="RLl-er-gL9"/>
+                        <constraint firstAttribute="trailing" secondItem="EwH-JV-he7" secondAttribute="trailing" constant="15" id="SP4-Dm-ll7"/>
+                        <constraint firstAttribute="height" constant="260" id="UKh-ze-n49"/>
+                        <constraint firstItem="9U6-zk-ny5" firstAttribute="leading" secondItem="KSn-88-dU3" secondAttribute="leading" id="oBe-J2-hdd"/>
+                        <constraint firstAttribute="trailing" secondItem="Zw5-7K-HrD" secondAttribute="trailing" constant="15" id="pgE-PX-I83"/>
+                        <constraint firstItem="9U6-zk-ny5" firstAttribute="top" secondItem="KSn-88-dU3" secondAttribute="top" id="vLd-lb-us1"/>
+                        <constraint firstItem="EwH-JV-he7" firstAttribute="top" secondItem="KSn-88-dU3" secondAttribute="top" constant="70" id="vX9-I0-a2Q"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="KSn-88-dU3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Eof-FM-6xa"/>
+                <constraint firstItem="KSn-88-dU3" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="RmZ-l1-ajb"/>
+                <constraint firstItem="y18-s7-iWH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UdG-06-Tjy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="y18-s7-iWH" secondAttribute="trailing" id="XFS-Oq-0QQ"/>
+                <constraint firstItem="y18-s7-iWH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="n3a-Ne-TL0"/>
+                <constraint firstAttribute="bottom" secondItem="KSn-88-dU3" secondAttribute="bottom" id="nh9-Oa-XOt"/>
+                <constraint firstAttribute="bottom" secondItem="y18-s7-iWH" secondAttribute="bottom" id="vGC-DN-MyK"/>
+            </constraints>
+            <connections>
+                <outlet property="cancelBtn" destination="gey-dK-hPp" id="AON-24-puc"/>
+                <outlet property="detailView" destination="KSn-88-dU3" id="IZL-0z-hwx"/>
+                <outlet property="textField" destination="hAO-gi-ZFz" id="Scq-Wh-G3J"/>
+                <outlet property="titleLab" destination="Htf-d4-YT5" id="AUm-x4-lsD"/>
+            </connections>
+            <point key="canvasLocation" x="26.717557251908396" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="TFClear" width="19" height="19"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

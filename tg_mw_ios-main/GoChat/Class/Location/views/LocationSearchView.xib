@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LocationSearchView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHm-Gk-H20">
+                    <rect key="frame" x="0.0" y="8" width="414" height="44"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Csd-vI-mV4">
+                            <rect key="frame" x="15" y="5" width="384" height="34"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="V39-Yn-iar">
+                                    <rect key="frame" x="10" y="8.5" width="17" height="17"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="17" id="Oyv-n7-1gD"/>
+                                        <constraint firstAttribute="width" constant="17" id="xeh-yE-Mhc"/>
+                                    </constraints>
+                                </imageView>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="diH-YW-4CV">
+                                    <rect key="frame" x="32" y="0.0" width="352" height="34"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="34" id="LHG-Ss-rWd"/>
+                                    </constraints>
+                                    <color key="textColor" red="0.015686274510000001" green="0.0078431372550000003" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="UmQ-a9-rFR"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.94509803921568625" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="V39-Yn-iar" firstAttribute="leading" secondItem="Csd-vI-mV4" secondAttribute="leading" constant="10" id="9hu-BA-8st"/>
+                                <constraint firstItem="V39-Yn-iar" firstAttribute="centerY" secondItem="Csd-vI-mV4" secondAttribute="centerY" id="Dkq-Kz-vka"/>
+                                <constraint firstAttribute="height" constant="34" id="GNN-be-xcX"/>
+                                <constraint firstAttribute="trailing" secondItem="diH-YW-4CV" secondAttribute="trailing" id="Lpb-eK-ZEl"/>
+                                <constraint firstItem="diH-YW-4CV" firstAttribute="leading" secondItem="V39-Yn-iar" secondAttribute="trailing" constant="5" id="OYs-eu-CA9"/>
+                                <constraint firstItem="diH-YW-4CV" firstAttribute="centerY" secondItem="Csd-vI-mV4" secondAttribute="centerY" id="T7w-GC-Ysm"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Csd-vI-mV4" firstAttribute="leading" secondItem="YHm-Gk-H20" secondAttribute="leading" constant="15" id="2LG-XJ-gSR"/>
+                        <constraint firstAttribute="height" constant="44" id="AgO-At-YJ7"/>
+                        <constraint firstItem="Csd-vI-mV4" firstAttribute="centerY" secondItem="YHm-Gk-H20" secondAttribute="centerY" id="TjH-Hp-rom"/>
+                        <constraint firstAttribute="trailing" secondItem="Csd-vI-mV4" secondAttribute="trailing" constant="15" id="fXK-3r-XTM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="YHm-Gk-H20" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="A6e-kX-wfO"/>
+                <constraint firstItem="YHm-Gk-H20" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eBJ-6p-5Uj"/>
+                <constraint firstItem="YHm-Gk-H20" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mHB-iB-VhG"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="tfSearch" destination="diH-YW-4CV" id="3J5-e0-ufc"/>
+            </connections>
+            <point key="canvasLocation" x="144.92753623188406" y="-121.20535714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Search" width="15" height="15"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

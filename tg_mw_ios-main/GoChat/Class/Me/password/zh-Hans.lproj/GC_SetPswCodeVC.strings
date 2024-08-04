@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "验证您的手机号码"; ObjectID = "ATL-KL-plC"; */
+"ATL-KL-plC.text" = "验证您的手机号码";
+
+/* Class = "UITextField"; placeholder = "请输入验证码"; ObjectID = "Czk-6K-Xlv"; */
+"Czk-6K-Xlv.placeholder" = "请输入验证码";
+
+/* Class = "UITextField"; placeholder = "请输入手机号码"; ObjectID = "SJS-QO-Ifw"; */
+"SJS-QO-Ifw.placeholder" = "请输入手机号码";
+
+/* Class = "UILabel"; text = "我们将会发送短信验证手机号码，请输入您的验证码"; ObjectID = "Y4N-cJ-FkA"; */
+"Y4N-cJ-FkA.text" = "我们将会发送短信验证手机号码，请输入您的验证码";
+
+/* Class = "UILabel"; text = "中国"; ObjectID = "fLo-W6-W1d"; */
+"fLo-W6-W1d.text" = "中国";
+
+/* Class = "UIButton"; normalTitle = "下一步"; ObjectID = "fuH-PO-9QC"; */
+"fuH-PO-9QC.normalTitle" = "下一步";
+
+/* Class = "UIButton"; normalTitle = "验证码"; ObjectID = "g9E-Qp-Kh0"; */
+"g9E-Qp-Kh0.normalTitle" = "验证码";
+
+/* Class = "UILabel"; text = "+ 86"; ObjectID = "iWH-QK-6Nm"; */
+"iWH-QK-6Nm.text" = "+ 86";

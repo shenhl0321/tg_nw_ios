@@ -1,0 +1,7 @@
+
+/* Class = "UILabel"; text = "--"; ObjectID = "eGt-VN-n9j"; */
+"eGt-VN-n9j.text" = "--";
+
+/* Class = "UILabel"; text = "用DMChat扫码，加入该群"; ObjectID = "qHI-F5-PIJ"; */
+//"qHI-F5-PIJ.text" = "用DMChat扫码，加入该群";
+"qHI-F5-PIJ.text" = [NSString stringWithFormat:@"用%@扫码，加入该群", localAppName.lv_localized]

@@ -1,0 +1,354 @@
+/*
+  AppLanguage.strings
+  AppModules
+
+  Created by mac on 2019/9/17.
+  Copyright © 2019 wangfei. All rights reserved.
+*/
+
+/// 通用
+"确定" = "Confirm";
+"确认" = "Confirm";
+"完成" = "Confirm";
+"取消" = "Cancel";
+"语言" = "Language";
+"提示" = "Tips";
+"图形验证码错误" = "Verification code error";
+"下一步" = "Next";
+"无数据" = "Empty data";
+"暂未开放" = "Not yet open";
+"文本长度超出" = "The text length is over 200 word";
+"搜索" = "Search";
+"无" = "Not";
+"全选" = "Checkall";
+"合计" = "Total";
+"结算" = "Settlement";
+"编辑" = "Edit";
+
+"申述" = "Complaint";
+
+"确定要使用该张图片吗" = "Are you sure you want to use this picture";
+"审核中" = "Reviewing";
+
+"复制链接成功" = "Copy link success";
+
+"发现新版本，是否立即更新" = "New version found, whether to update immediately";
+"暂不更新" = "Cancel";
+"立即更新" = "Update";
+"即刻升级" = "Update";
+"关于比特宝石" = "About BitGem";
+"检查更新" = "Check Update";
+"简介" = "Introduction";
+"当前版本" = "Current version";
+"版本" = "Version";
+"关于" = "About";
+"已是最新版本" = "Is the latest version";
+
+"是否复制手机号" = "Whether to copy phone";
+"已复制" = "Copy success";
+
+"未能正确识别二维码" = "Failed to recognize qr code";
+
+"选择区号" = "Select area code";
+
+"扫一扫" = "Scan";
+
+"该账号已退出登录或者在别的设备中登录，请重新登录" = "This account has logged out or logged in another device, please log in again";
+
+/// 登录注册相关
+"账号" = "Account";
+"密码" = "Password";
+"登录密码" = "Password";
+"验证码" = "Code";
+"请输入账号" = "Please enter your account number";
+"请输入登录密码" = "Please enter the login password";
+"请输入图形验证码" = "Please input graphic verification code";
+"请输入验证码" = "Please input verification code";
+"忘记密码?" = "Forget password？";
+"忘记密码" = "Forget password";
+"忘记登录密码" = "Forget password";
+"忘记交易密码" = "Forget password";
+"立即注册" = "Register now";
+"登录" = "Login";
+"邀请码" = "Invitation code";
+"请输入邀请码" = "Please enter the invitation code";
+"区号" = "Area code";
+"手机号码" = "Phone number";
+"请输入手机号码" = "Please enter your mobile number";
+"请输入正确格式的手机号" = "Please enter your mobile number";
+"确认登录密码" = "Confirm login password";
+"请再次输入登录密码" = "Please enter the login password again";
+"交易密码" = "Transaction password";
+"支付密码" = "Transaction password";
+"请输入交易密码" = "Please enter the transaction password";
+"确认交易密码" = "Confirm transaction password";
+"请再次输入交易密码" = "Please enter the transaction password again";
+"获取验证码" = "Get code";
+"秒" = "s";
+"新密码" = "New password";
+"确认密码" = "Confirm password";
+"确认新密码" = "Confirm new password";
+"请输入旧密码" = "Please enter the old password";
+"请输入新密码" = "Please enter a new password";
+
+"两次输入的密码不一致" = "Two passwords are inconsistent";
+"两次输入的支付密码不一致" = "Two trade passwords are inconsistent";
+
+"设备锁了？马上解绑" = "Unbundling device immediately";
+"解绑" = "Unbundling";
+"解绑超过" = "Unbinding more than";
+"次将自动封号" = "times will automatically seal";
+
+"首页" = "Home";
+"矿机商城" = "Mall";
+"我的团队" = "Team";
+"交易" = "Transaction";
+"个人中心" = "My";
+"个人算力" = "People force";
+"团队算力" = "Team force";
+"收款" = "Turn in";
+"邀请好友" = "Invite friends";
+"我的云矿机" = "My mill";
+"我的矿机" = "My mill";
+"话费充值" = "Prepaid Refill";
+"油卡充值" = "Oil card recharge";
+"宝石商城" = "BitGem mall";
+"系统公告" = "System Notice";
+"充值" = "Recharge";
+"一键买币" = "Recharge money";
+"一键卖币" = "Withdraw money";
+"平台简介" = "Synopsis";
+"区块浏览器" = "Block browser";
+"NE" = "NE";
+"NE" = "NE";
+"总币" = "Total currency";
+"租赁价" = "Lease price";
+"算力" = "Calculation power";
+"获得算力" = "Calculation power";
+"租用" = "Rent";
+"搭建" = "Rent";
+"矿机商城" = "Mining machine";
+
+"我的团队"  = "Team";
+
+//转出
+"转给" = "Transfer to";
+"一键收币" = "Coin collection";
+"转入" = "To change into";
+"收款二维码" = "Collection QR code";
+"收款记录" = "Collection record";
+"对方账号" = "Accept Name:";
+"接收账号" = "Receiver username:";
+"NE个数" = "NE num";
+"要转出的NE个数" = "The number of NEs to be transferred";
+"交易密码:" = "Trade pwd:";
+"满24小时才可领取" = "Can only be claimed after 24 hours";
+//转入
+"扫一扫，向我付款" = "Scan,pay me";
+"收款记录" = "Record";
+"电话号码" = "phone number";
+//邀请好友
+"复制推广链接" = "Replication promotion links";
+"我的邀请码" = "My invitation code";
+
+//我的矿机
+"一键领取" = "A key to get";
+"有效矿机数" = "Effective mill";
+"无效矿机数" = "Expired mill";
+"矿机类型:" = "Mine type:";
+"矿机已产币:" = "Produced currency:";
+"过期时间:" = "Expiration time:";
+"是否有效:" = "Is effective:";
+"上次领取时间:" = "Last time";
+"一键领取已完成" = "A key to get success";
+
+//话费充值
+"请输入要充值的手机号码" = "please enter the phone number to recharge";
+"充值金额" = "Recharge amount";
+"请选择充值金额" = "Please select amount";
+"扣除NE" = "Deduct NE";
+"申请记录" = "Record";
+"提交申请" = "Application for submission";
+"当前NE价格" = "Current NE price";
+"-注：话费充值将扣除NE的30%手续费，\n兑换时间：9:00-18:00，24小时内到账" = "Note: 30% service charge of NE will be deducted for phone charge recharging.\n The exchange time is 9:00-18:00, and it will be received within 24 hours.";
+
+//油卡充值
+"充值卡号" = "Recharge card number";
+"请输入要充值的卡号" = "please enter the card number to recharge";
+"充值类型" = "Recharge type";
+"请选择" = "Please select";
+"请选择充值类型" = "Please select type";
+"充油卡" = "Oil filling card";
+"充值状态" = "Recharge status";
+"充值时间" = "Recharge time";
+"油卡号" = "Oil card No";
+
+"充话费" = "Pay the phone bill";
+"话费" = "phone bill";
+//充币
+"充值记录" = "Recrod";
+"充币记录" = "Recrod";
+"充币数量" = "Recharge amount";
+"充币数量：" = "Amount：";
+"请输入充币的NE数量" = "Please enter the quantity of NE";
+"需要充值的USDT数量" = "USDT recharge";
+"可获得" = "Obtain";
+"充币凭证" = "Recharge voucher";
+"充币凭证：" = "Voucher：";
+"充币时间：" = "Date：";
+"充币状态" = "Status";
+"请上传充币凭证" = "Please upload recharge voucher";
+
+//提币
+"卖币" = "Selling coins";
+"提币" = "Selling coins";
+"卖币记录" = "Recrod";
+"币种类型" = "Currency type";
+"请选择提现币种" = "Please select currency type";
+"请选择币种类型" = "Please select currency type";
+"账户余额" = "balance";
+"数量" = "Number";
+"标签" = "Label";
+"请输入标签" = "Please enter a label";
+"手续费" = "Service Charge";
+
+
+//用户记录
+"业务类型" = "Business type";
+
+//公告
+"通知公告" = "Notice";
+
+//交易
+"交易明细" = "Transaction details";
+"日线" = "Daily line";
+"分时线" = "Hours line";
+"交易中心" = "Trading Center";
+"发布求购" = "Purchase";
+"我的订单" = "My order";
+"交易记录" = "Trade record";
+"求购大厅" = "Buying Hall";
+"总价" = "Total price";
+"卖出" = "Sell";
+"当日价格" = "Day price";
+"记录" = "Record";
+//租赁
+"线下支付" = "Offline Payments";
+"向" = "Sell to";
+"出售" = "sell";
+"请输入二级密码" = "Please enter the transaction password";
+"矿机列表" = "My mill";
+"请选择矿机类型" = "Please select miner type";
+"价格" = "Price";
+"支付方式" = "Payment method";
+"请选择支付方式" = "Please select payment method";
+"当前NE" = "Current NE";
+"运行周期" = "Operation cycle";
+"总产值" = "Output value";
+
+//求购
+"发布求购" = "NE purchase";
+"今日市价" = "Today market value";
+"购买总额" = "Total price";
+"总额" = "Total price";
+"买入数量" = "Buying quantity";
+"请输入购买数量" = "Please enter purchase quantity";
+
+//订单
+"成交量" = "volume";
+"需求量" = "requirement";
+"NE订单" = "NE order";
+"发布订单" = "Issue order";
+"卖出已完成" = "Sell completed";
+"买入已完成" = "Purchase completed";
+"待处理" = "Pending";
+"进行中" = "Processing";
+"已完成" = "Completed";
+"已取消" = "Cancelled";
+"订单号" = "OrderId";
+"交易类型" = "Type";
+"交易数量" = "Number";
+"交易金额" = "Amount";
+"操作" = "Operation";
+"详细" = "Detail";
+"请上传付款凭证" = "Please upload the payment credentials";
+"确定已收款吗" = "Are you sure the money has been collected";
+"确定要取消订单吗" = "Are you sure you want to cancel the order";
+"上传凭证(图片/截图)" = "Upload Payment credentials(picture/screenshot)";
+"付款凭证(图片/截图)" = "Payment credentials/(picture/screenshot)";
+
+"订单详情" = "Order details";
+"买入账号" = "Buying account";
+"实际交易额(USD)" = "Actual trade amount(USD)";
+"实际交易额(RMB)" = "Actual trade amount(RMB)";
+"买家电话" = "Buyers phone";
+"银行名称" = "Bank name";
+"买家户名" = "Buyer account name";
+"买家银行卡号" = "Buyer bank card number";
+"订单状态描述" = "Order status";
+"挂单时间" = "Publish Time";
+"下单时间" = "Trade time";
+"完成时间" = "Complete time";
+"取消时间" = "Cancel time";
+"取消原因" = "Cancel reason";
+"买入方未上传付款凭证" = "Buyer did not upload payment receipt";
+
+"卖出账号" = "Seller account";
+"卖家电话" = "Seller phone";
+"卖家户名" = "Seller account name";
+"卖家银行卡号" = "Seller bank card number";
+"未下单" = "Did not place the order";
+
+//个人中心
+"用户编号" = "User mobile phone";
+"用户等级" = "User level";
+"直推人数" = "Pushing number";
+"邀请数量" = "Pushing number";
+"团队人数" = "Team number";
+"实名认证" = "Real name authentication";
+"修改密码" = "Change Password";
+"修改" = "Change";
+"账户记录" = "Account record";
+"我的账单" = "My account record";
+"分享" = "Share";
+"公告" = "Notice";
+"投诉建议" = "Complaint suggestion";
+"新手指导" = "Novice guide";
+"退出登录" = "Logout";
+"总产量" = "Production";
+"累计奖金" = "Bonuses";
+"总收益" = "Total revenue";
+"运行矿机" = "Effective machine";
+"是否退出登录" = "Log out or not";
+
+//投诉建议
+"提交" = "Submit";
+"请填写详细问题和意见" = "Problems and opinions";
+"提交" = "Submit";
+"提交记录" = "Record";
+"内容" = "Content";
+"请填写您的问题" = "Please fill in your question";
+"等待回复" = "Wait for a response";
+"客服回复" = "Customer service reply";
+"提供相关问题的截图" = "Provide screenshot of relevant problem";
+
+//实名认证
+"上级手机号" = "Superior mobile number";
+"真实姓名" = "Real name";
+"请输入真实姓名" = "Please enter your real name";
+"身份证号码" = "ID card No";
+"持卡人姓名" = "Name of cardholder";
+"请输入持卡人姓名" = "Please enter the cardholder name";
+"开户银行" = "Bank of deposit";
+"请选择开户银行" = "Please select the Bank of deposit";
+"开户支行" = "Bank branch";
+"请输入开户支行名称" = "Please enter the name of the opening branch";
+"银行卡号" = "Bank card number";
+"请输入银行卡号" = "Please enter the bank card number";
+"请上传身份证正面" = "Please upload the front of ID card";
+"请上传身份证反面" = "Please upload the reverse of ID card";
+"请上传手持身份证照" = "Please upload your ID card";
+"请上传手持宣传语照" = "Please upload the photo of hand held propaganda";
+
+"更新中..." = "更新中...";
+"连接中..." = "连接中...";

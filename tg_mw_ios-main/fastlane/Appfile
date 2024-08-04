@@ -1,0 +1,6 @@
+app_identifier("com.zy.gochat.new") # The bundle identifier of your app
+apple_id("baoyu82730@yeah.net") # Your Apple email address
+
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

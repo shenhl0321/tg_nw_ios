@@ -1,0 +1,8 @@
+
+/* Class = "UILabel"; text = "用户昵称"; ObjectID = "3C1-GJ-xvZ"; */
+//"3C1-GJ-xvZ.text" = "用户昵称";
+
+/* Class = "UILabel"; text = "用DMChat扫码，加我好友"; ObjectID = "AWt-yO-dNX"; */
+//"AWt-yO-dNX.text" = "Use DMChat to scan and add friend";
+
+"AWt-yO-dNX.text" = [NSString stringWithFormat:@"Use %@ to scan and add friend", localAppName.lv_localized];
