@@ -60,6 +60,30 @@
 /// 表情商店
 @property (nonatomic, assign) BOOL can_see_emoji_shop;
 
+/// 表情商店
+@property (nonatomic, assign) BOOL can_see_jd;
+
+//隐藏京东 第一个需求
+@property (nonatomic, assign) BOOL can_see_explore_bar;
+
+//第二个需求
+//私密聊天
+@property (nonatomic, assign) BOOL can_see_private_chat;
+@property (nonatomic, assign) BOOL can_see_personal_qrcode;
+//信息二维码：直接隐藏
+//用户名，电话号码：待定
+
+//分享功能
+@property (nonatomic, assign) BOOL can_see_share;
+//投诉功能
+@property (nonatomic, assign) BOOL can_see_complaint;
+
+
+
+//第四个需求
+@property (nonatomic, assign) BOOL can_see_group_setting;
+                            
+
 + (instancetype)sharedInstance;
 + (AppConfigInfo *)getAppConfigInfo;
 + (void)saveAppConfigInfo:(AppConfigInfo *)info;

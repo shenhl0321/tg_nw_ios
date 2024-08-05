@@ -15,6 +15,8 @@
 @optional
 
 - (BOOL)isGroupChat;
+- (BOOL)isManage;
+
 - (BOOL)canManageSomeone:(MessageViewBaseCell *)cell;
 
 - (void)messageCellWillBan:(MessageViewBaseCell *)cell;

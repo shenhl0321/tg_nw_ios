@@ -125,9 +125,9 @@
         });
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoHomeView];
+           
             [[TelegramManager shareInstance] getApplicationConfigWithResultBlock:^(NSDictionary *request, NSDictionary *response, id obj) {
-                NSLog(@"");
+                [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoHomeView];
             } timeout:^(NSDictionary *request) {
                 
             }];

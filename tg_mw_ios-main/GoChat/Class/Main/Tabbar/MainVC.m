@@ -470,7 +470,8 @@
 - (void)refreshView{
 //    return;
     TabExMenuInfo *curTabExMenuInfo = [TabExMenuInfo getTabExMenuInfo];
-    if (curTabExMenuInfo.status == YES){
+    
+    if ([AppConfigInfo sharedInstance].can_see_explore_bar == true){
         NSInteger index = 0;
         CGFloat itemWidth = APP_SCREEN_WIDTH/5.0;
         CGFloat itemHeight = APP_TAB_BAR_HEIGHT2();

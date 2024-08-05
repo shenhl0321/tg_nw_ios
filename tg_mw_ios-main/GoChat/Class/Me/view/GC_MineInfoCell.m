@@ -19,7 +19,7 @@
     
     [self.setBtn setTitle:@"" forState:UIControlStateNormal];
     [self.scanBtn setTitle:@"" forState:UIControlStateNormal];
-    
+    self.scanBtn.hidden = ![AppConfigInfo sharedInstance].can_see_personal_qrcode;
 //    [self.scanBtn setBackgroundImage:[UIImage imageNamed:@"icon_mine_scan".lv_Style] forState:UIControlStateNormal];
 //    [self.setBtn setBackgroundImage:[UIImage imageNamed:@"icon_mine_set".lv_Style] forState:UIControlStateNormal];
     self.selectionStyle = UITableViewCellSelectionStyleNone;

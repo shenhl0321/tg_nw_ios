@@ -73,7 +73,7 @@ typedef NS_ENUM(NSInteger, SecretChatState) {
 
 @property (nonatomic) BOOL is_pinned;
 @property (nonatomic) BOOL default_disable_notification;
-
+@property (nonatomic) BOOL isManage;
 /// 私密聊天信息
 @property (nonatomic,strong) SecretChat *secretChatInfo;
 //from getUserFullInfo
@@ -105,6 +105,7 @@ typedef NS_ENUM(NSInteger, SecretChatState) {
 - (void)getSuperGroupInfo:(void(^)(SuperGroupInfo *info))completion;
 
 - (BOOL)isGroup;
+
 - (BOOL)isSuperGroup;
 - (BOOL)isSecretChat;
 - (long)userId;

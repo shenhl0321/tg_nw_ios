@@ -118,6 +118,7 @@
     }];
 }
 
+
 - (BOOL)isGroup
 {
     return [@"chatTypeBasicGroup" isEqualToString:self.type.type] || [@"chatTypeSupergroup" isEqualToString:self.type.type];

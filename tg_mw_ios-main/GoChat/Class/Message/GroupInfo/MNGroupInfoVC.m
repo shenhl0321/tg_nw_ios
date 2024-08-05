@@ -884,7 +884,12 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 5) {
 //        return self.headerView;
-        QTGroupHeadView02 *headview = [[NSBundle mainBundle] loadNibNamed:@"QTGroupHeadView02" owner:nil options:nil].firstObject;
+        QTGroupHeadView02 *headview;
+        if([AppConfigInfo sharedInstance].can_see_complaint){
+            headview = [[NSBundle mainBundle] loadNibNamed:@"QTGroupHeadView02" owner:nil options:nil].firstObject;
+        }else{
+            headview = [[NSBundle mainBundle] loadNibNamed:@"QTGroupHeadView02" owner:nil options:nil][1];
+        }
         headview.frame = CGRectMake(0, 0, SCREEN_WIDTH, 192);
         [headview.tousuBtn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [headview.jsqzBtn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -1084,6 +1089,8 @@
         return 0;
     }else if (section == 3){
         return 0;
+    }else if (section == 1){
+        return [AppConfigInfo sharedInstance].can_see_share ? 1 : 0;
     }else{
         return 1;
     }

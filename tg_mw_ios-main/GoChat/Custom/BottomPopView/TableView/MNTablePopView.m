@@ -36,7 +36,8 @@
    _type = type;
    _chooseIndexBlock = chooseIndexBlock;
    if (type == MNTablePopViewTypeMsgAdd) {
-       self.bottomView.frame = CGRectMake(APP_SCREEN_WIDTH-160-10, 70-20+APP_STATUS_BAR_HEIGHT+5 + 10, 180, 205 + 30 - 2*self.heightForSectionHeader);
+       CGFloat statusRate = [AppConfigInfo sharedInstance].can_see_private_chat ? 1 : 0.75;
+       self.bottomView.frame = CGRectMake(APP_SCREEN_WIDTH-160-10, 70-20+APP_STATUS_BAR_HEIGHT+5 + 10, 180, (205 + 30 - 2*self.heightForSectionHeader) * statusRate);
    }
    _dataArray = [[NSMutableArray alloc] initWithArray:dataArray];
     [self initUI];
@@ -55,8 +56,10 @@
     [dataArray addObject:model0];
     MNTablePopModel *model1 = [[MNTablePopModel alloc] initWithId:@"NewGroup" title:@"新建群组".lv_localized iconName:@"PopNewGroup"];
     [dataArray addObject:model1];
-    MNTablePopModel *model2 = [[MNTablePopModel alloc] initWithId:@"NewPrivateChat" title:@"开启私密聊天".lv_localized iconName:@"PopNewPrivateChat"];
-    [dataArray addObject:model2];
+    if([AppConfigInfo sharedInstance].can_see_private_chat){
+        MNTablePopModel *model2 = [[MNTablePopModel alloc] initWithId:@"NewPrivateChat" title:@"开启私密聊天".lv_localized iconName:@"PopNewPrivateChat"];
+        [dataArray addObject:model2];
+    }
     MNTablePopModel *model3 = [[MNTablePopModel alloc] initWithId:@"Scan" title:@"扫一扫".lv_localized iconName:@"PopScan"];
     [dataArray addObject:model3];
     [self showTablePopViewWithType:type dataArray:dataArray chooseIndexBlock:chooseIndexBlock];

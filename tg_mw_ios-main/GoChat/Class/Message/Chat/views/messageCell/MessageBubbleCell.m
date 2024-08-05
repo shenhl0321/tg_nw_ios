@@ -523,6 +523,10 @@
         if(!self.delegate.isGroupChat)
         {
             [menuItems addObject:[ChatMenu menuWithTitle:@"撤回".lv_localized icon:@"menu_revoke" action:@selector(revokeMessage:)]];
+        }else{
+            if(self.delegate.isManage){
+                [menuItems addObject:[ChatMenu menuWithTitle:@"撤回".lv_localized icon:@"menu_revoke" action:@selector(revokeMessage:)]];
+            }
         }
     }
     //收藏

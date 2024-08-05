@@ -333,9 +333,12 @@
     [self addTuiJianGeiHaoYouViewFrame:CGRectMake(0, top, SCREEN_WIDTH, btnHeight + 1)];
     top += (btnHeight + 1);
     
-    // 私密聊天
-    [self addKaiQiSiMiLiaoTianViewFrame:CGRectMake(0, top, SCREEN_WIDTH, btnHeight + 1)];
-    top += (btnHeight + 1);
+    if([AppConfigInfo sharedInstance].can_see_private_chat){
+        // 私密聊天
+        [self addKaiQiSiMiLiaoTianViewFrame:CGRectMake(0, top, SCREEN_WIDTH, btnHeight + 1)];
+        top += (btnHeight + 1);
+    }
+   
     
     [self addTouSuViewFrame:CGRectMake(0, top, SCREEN_WIDTH, btnHeight + 10)];
     

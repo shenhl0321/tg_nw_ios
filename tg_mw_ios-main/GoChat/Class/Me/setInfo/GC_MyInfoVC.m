@@ -80,7 +80,13 @@
         AppConfigInfo *config = [AppConfigInfo sharedInstance];
         if (config.can_see_qr_code) {
             NSArray *array0 = @[@"头像".lv_localized];
-            NSArray *array01 = @[@"昵称".lv_localized,@"用户名".lv_localized,@"电话号码".lv_localized,@"二维码".lv_localized];
+            NSArray *array01;
+            if([AppConfigInfo sharedInstance].can_see_personal_qrcode){
+                array01 = @[@"昵称".lv_localized,@"用户名".lv_localized,@"电话号码".lv_localized,@"二维码".lv_localized];
+            }else{
+                array01 = @[@"昵称".lv_localized,@"用户名".lv_localized,@"电话号码".lv_localized];
+            }
+           
             NSArray *array02 = @[@"签名".lv_localized,@"性别".lv_localized,@"生日".lv_localized,@"地区".lv_localized];
             
             _dataArr = @[array0, array01, array02];
@@ -225,10 +231,21 @@
     }else if ([text isEqualToString:@"用户名".lv_localized]){
         cell.contentLab.text = IsStrEmpty([UserInfo shareInstance].username)==YES?@"未完善":[UserInfo shareInstance].username;
     }else if ([text isEqualToString:@"电话号码".lv_localized]){
-        NSString *phone = [UserInfo shareInstance].phone_number;
-        if(![phone hasPrefix:@"+"])
-            phone = [NSString stringWithFormat:@"+%@", phone];
-        cell.contentLab.text = phone;
+       // NSString *phone = [UserInfo shareInstance].phone_number;
+        if([UserInfo shareInstance].phone_number.length == 11){
+            NSString *phone = [UserInfo shareInstance].phone_number;
+            NSString *withStr = @"*****";
+            NSInteger fromIndex = 3;
+            NSRange range = NSMakeRange(fromIndex,  withStr.length);
+            NSString *phoneNumber = [phone stringByReplacingCharactersInRange:range  withString:withStr];
+
+            if(![phone hasPrefix:@"+"])
+                phone = [NSString stringWithFormat:@"+%@", phone];
+            cell.contentLab.text = phone;
+        }else{
+            cell.contentLab.text = @"未填写";
+        }
+        
     }else if ([text isEqualToString:@"二维码".lv_localized]){
         cell.contentLab.text = @"";
         cell.erweimaImageV.hidden = NO;

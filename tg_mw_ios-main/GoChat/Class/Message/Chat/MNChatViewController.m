@@ -1070,7 +1070,10 @@
     {
         case GroupMemberState_Administrator:
             //管理员
+        {
+            self.chatInfo.isManage = YES;
             [self CanSendMessage];
+        }
             break;
         case GroupMemberState_Creator:
             //创建者
@@ -1080,6 +1083,7 @@
             }
             else
             {
+                self.chatInfo.isManage = YES;
                 [self CanSendMessage];
             }
             break;
@@ -3208,6 +3212,10 @@ static AVAssetExportSession *videoExportSession = nil;
     return self.chatInfo.isGroup;
 }
 
+- (BOOL)isManage{
+    return self.chatInfo.isManage;
+}
+
 - (BOOL)canManageSomeone:(MessageViewBaseCell *)cell
 {
     if(self.chatInfo.isGroup)
@@ -4648,6 +4656,7 @@ static AVAssetExportSession *videoExportSession = nil;
             cell = [[messageCellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifierStr];
         }
         cell.delegate = self;
+        cell.chatInfo = self.chatInfo;
         cell.groupMembers = self.membersList;
         [cell loadChatRecord:msg isGroup:self.chatInfo.isGroup];
         [cell setupTapGesture];

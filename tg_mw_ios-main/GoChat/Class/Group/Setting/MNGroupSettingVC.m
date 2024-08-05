@@ -64,12 +64,25 @@
 
 - (void)initTableData{
     _rows = [[NSMutableArray alloc] init];
-    NSArray *row0 = @[@"设置为公开群".lv_localized,@"群成员禁言".lv_localized,@"被禁言成员列表".lv_localized];
-    NSArray *row1 = @[@"禁止发送媒体".lv_localized, @"禁止发送链接".lv_localized, @"禁止发送二维码".lv_localized, @"禁止发送DM消息".lv_localized, @"屏蔽敏感词管理".lv_localized, @"发送敏感词移除群聊".lv_localized, @"敏感词移除群聊提示".lv_localized];
-    NSArray *row2 = @[@"群成员可邀请好友进群".lv_localized,@"禁止加好友、私聊".lv_localized];
-    [self.rows addObject:row0];
-    [self.rows addObject:row1];
-    [self.rows addObject:row2];
+    NSArray *row0;
+    NSArray *row1;
+    NSArray *row2;
+    if([AppConfigInfo sharedInstance].can_see_group_setting){
+        row0 = @[@"设置为公开群".lv_localized,@"群成员禁言".lv_localized,@"被禁言成员列表".lv_localized];
+        row1 = @[@"禁止发送媒体".lv_localized, @"禁止发送链接".lv_localized, @"禁止发送二维码".lv_localized, @"禁止发送DM消息".lv_localized, @"屏蔽敏感词管理".lv_localized, @"发送敏感词移除群聊".lv_localized, @"敏感词移除群聊提示".lv_localized];
+        row2 = @[@"群成员可邀请好友进群".lv_localized,@"禁止加好友、私聊".lv_localized];
+        [self.rows addObject:row0];
+        [self.rows addObject:row1];
+        [self.rows addObject:row2];
+    }else{
+        row0 = @[@"群成员禁言".lv_localized,@"被禁言成员列表".lv_localized];
+        row1 = @[];
+        row2 = @[@"群成员可邀请好友进群".lv_localized,@"禁止加好友、私聊".lv_localized];
+        [self.rows addObject:row0];
+       // [self.rows addObject:row1];
+        [self.rows addObject:row2];
+    }
+   
 }
 
 - (void)handleCell:(MNGroupLCLbRCSwitchCell *)cell aSwitch:(ASwitch *)aSwitch rowName:(NSString *)rowName isOn:(BOOL)isOn{

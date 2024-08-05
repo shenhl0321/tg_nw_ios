@@ -7696,7 +7696,29 @@ static TelegramManager *g_TelegramManager = nil;
                         NSDictionary *valueDic = [itemDic objectForKey:@"value"];
                         BOOL can_see_emoji_shop = [[valueDic objectForKey:@"value"] boolValue];
                         info.can_see_emoji_shop = can_see_emoji_shop;
+                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_private_chat"]) {
+                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
+                        BOOL can_see_private_chat = [[valueDic objectForKey:@"value"] boolValue];
+                        info.can_see_private_chat = can_see_private_chat;
+                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_private_chat"]) {
+                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
+                        BOOL can_see_private_chat = [[valueDic objectForKey:@"value"] boolValue];
+                        info.can_see_private_chat = can_see_private_chat;
+                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_share"]) {
+                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
+                        BOOL can_see_share = [[valueDic objectForKey:@"value"] boolValue];
+                        info.can_see_share = can_see_share;
+                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_complaint"]) {
+                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
+                        BOOL can_see_complaint = [[valueDic objectForKey:@"value"] boolValue];
+                        info.can_see_complaint = can_see_complaint;
+                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_group_setting"]) {
+                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
+                        BOOL can_see_group_setting = [[valueDic objectForKey:@"value"] boolValue];
+                        info.can_see_group_setting = can_see_group_setting;
                     }
+                    
+                    
                 }
                 if(resultBlock != nil)
                 {
