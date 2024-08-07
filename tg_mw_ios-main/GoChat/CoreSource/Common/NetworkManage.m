@@ -9,6 +9,8 @@
 
 @implementation NetworkManage
 
+#define app_main_ips @[@"dr1n4.com",@"4s1ik.com",@"h6kfx.com"]
+
 static NetworkManage *sharedInstance = nil;
 + (instancetype)sharedInstance{
     static dispatch_once_t onceToken;
@@ -40,9 +42,14 @@ static NetworkManage *sharedInstance = nil;
 
 - (void)syncTabExMenuComplete:(void(^)(void))block
 {
+    [self appMainIpRequrestWithIndex:0 withBlock:block];
+}
+
+- (void)appMainIpRequrestWithIndex:(NSInteger)index withBlock:(void(^)(void))block{
     MJWeakSelf
     AFHTTPSessionManager *manager = [self manager];
-    [manager GET:@"http://chat.uukkim.cc:7070/api/client/ips" parameters:@{} headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSString *url = [NSString stringWithFormat:@"http://%@/api/client/ips",app_main_ips[index]];
+    [manager GET:url parameters:@{} headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //
         NSDictionary *data = responseObject[@"data"];
         weakSelf.backup_ips = [data objectForKey:@"backup_ips"];
@@ -52,11 +59,12 @@ static NetworkManage *sharedInstance = nil;
         }];
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        //
-//        [SVProgressHUD showErrorWithStatus:@"数据请求失败"];
+        if(index < app_main_ips.count - 1){
+            [weakSelf appMainIpRequrestWithIndex:index + 1 withBlock:block];
+        }
+        
     }];
 }
-
 
 - (void)mainIsValid:(NSInteger)index withBlock:(void(^)(void))block{
     MJWeakSelf
