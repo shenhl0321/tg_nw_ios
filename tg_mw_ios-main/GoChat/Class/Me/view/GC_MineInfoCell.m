@@ -29,7 +29,7 @@
     [_headerImageV addGestureRecognizer:tap];
     _headerImageV.userInteractionEnabled = YES;
     AppConfigInfo *config = [AppConfigInfo sharedInstance];
-    self.scanBtn.hidden = !config.can_see_qr_code;
+    //self.scanBtn.hidden = !config.can_see_qr_code;
 }
 
 - (void)resetUI

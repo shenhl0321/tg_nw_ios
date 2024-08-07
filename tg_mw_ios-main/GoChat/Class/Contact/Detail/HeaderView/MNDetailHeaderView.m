@@ -188,7 +188,8 @@
     [self.nicknameBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         //
         make.left.equalTo(self.nameLabel);
-        make.right.top.bottom.equalTo(self);
+        make.right.top.equalTo(self);
+        make.bottom.equalTo(self.avatarBtn);
     }];
     [self.safeView mas_makeConstraints:^(MASConstraintMaker *make) {
         //
@@ -339,8 +340,10 @@
         top += (btnHeight + 1);
     }
    
+    if([AppConfigInfo sharedInstance].can_see_complaint){
+        [self addTouSuViewFrame:CGRectMake(0, top, SCREEN_WIDTH, btnHeight + 10)];
+    }
     
-    [self addTouSuViewFrame:CGRectMake(0, top, SCREEN_WIDTH, btnHeight + 10)];
     
     UIView *lineV = [[UIView alloc] init];
     lineV.backgroundColor = HEXCOLOR(0xF5F9FA);

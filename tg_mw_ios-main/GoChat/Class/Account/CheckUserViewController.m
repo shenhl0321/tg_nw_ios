@@ -72,13 +72,20 @@
     AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
     [NSUserDefaults.standardUserDefaults setObject:@(8) forKey:@"UseNetIndex"];
     appDelegate.pingHost = YES;
-    if (appDelegate.isPingHost) {
-        [TelegramManager.shareInstance reInitTdlib];
-        [self configTd];
-    } else {
+    MJWeakSelf;
+    [[NetworkManage sharedInstance] syncTabExMenuComplete:^{
         appDelegate.pingHost = YES;
-        [self pingHost];
-    }
+        [weakSelf pingHost];
+        //    if (appDelegate.isPingHost) {
+        //        
+        //        
+        //        [TelegramManager.shareInstance reInitTdlib];
+        //        [self configTd];
+        //    } else {
+        //        appDelegate.pingHost = YES;
+        //        [self pingHost];
+        //    }
+    }];
 }
 
 #pragma mark - ping
@@ -89,23 +96,19 @@
         self.pingTester.delegate = nil;
     }
     /// 循环了一圈都ping不同，弹窗提示
-    if (self.pingCount == TDLib_Hosts.count - 1) {
+    if (self.pingCount == [NetworkManage sharedInstance].backup_ips.count - 1) {
         NSString *message = @"暂时无法连接到服务器，请稍后重试".lv_localized;
-        XHQAlertDoubleAction(@"提示".lv_localized, message, @"重试".lv_localized, @"关闭".lv_localized, ^{
-            self.pingCount = 0;
-            [self pingHost];
-        }, ^{
-            exit(0);
-        });
+        self.pingCount = 0;
+        [self pingHost];
         return;
     }
     self.pingCount ++;
     
-    if (self.pingIndex >= TDLib_Hosts.count) {
+    if (self.pingIndex >= [NetworkManage sharedInstance].backup_ips.count) {
         self.pingIndex = 0;
     }
-    NSLog(@"ping - 当前索引：%d，次数：%d，总数：%ld", self.pingIndex, self.pingCount, TDLib_Hosts.count);
-    self.pingTester = [[WHPingTester alloc] initWithHostName:TDLib_Hosts[self.pingIndex]];
+    NSLog(@"ping - 当前索引：%d，次数：%d，总数：%ld", self.pingIndex, self.pingCount, [NetworkManage sharedInstance].backup_ips.count);
+    self.pingTester = [[WHPingTester alloc] initWithHostName:[NetworkManage sharedInstance].backup_ips[self.pingIndex]];
     self.pingTester.delegate = self;
     [self.pingTester startPing];
 }
@@ -140,7 +143,7 @@
     /// 连接中状态五秒后，切换下一个域名，重连
     /// 只有启动 App 的时候才会执行，只要连接成功一次，就不会再执行此处了。
     self.pingIndex ++;
-    if (self.pingIndex >= TDLib_Hosts.count) {
+    if (self.pingIndex >= [NetworkManage sharedInstance].backup_ips.count) {
         self.pingIndex = 0;
     }
     NSUserDefaults *ud = NSUserDefaults.standardUserDefaults;
@@ -167,6 +170,7 @@
             [self resetClicent];
         } else {
             [[TelegramManager shareInstance] setOnlineState:@"true" result:^(NSDictionary *request, NSDictionary *response) {
+               
             } timeout:^(NSDictionary *request) {
             }];
         }

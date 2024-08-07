@@ -1339,6 +1339,8 @@ static TelegramManager *g_TelegramManager = nil;
     }
 }
 
+
+
 #pragma mark - 鉴权相关
 - (void)setTdlibParameters:(NSString *)data_directory result:(TgResultBlock)resultBlock timeout:(TgTimeoutBlock)timeoutBlock
 {
@@ -1351,6 +1353,8 @@ static TelegramManager *g_TelegramManager = nil;
         int rtId = self.requestId++;
         NSNumber * useNetIndex = [[NSUserDefaults standardUserDefaults] objectForKey:@"UseNetIndex"];
 //        NSNumber * useNetIndex = [NSNumber numberWithInt:0];
+        
+        NSString *backup_ip =[NetworkManage sharedInstance].backup_ips[[useNetIndex intValue]];
         NSDictionary *paramDic = @{@"database_directory" : data_directory,
                                    //@"files_directory" : @""//不设置，则使用database_directory
                                    @"use_file_database" : [NSNumber numberWithBool:YES],
@@ -1364,7 +1368,7 @@ static TelegramManager *g_TelegramManager = nil;
                                    @"application_version" : [Common appVersion],
                                    @"system_version" : [Common systemVersion],
                                    @"dc_host_idx" : useNetIndex,//@"dc_host_list" : @[TDLib_Host],
-                                   @"dc_host_list" : TDLib_Hosts,
+                                   @"dc_host_list" :[NetworkManage sharedInstance].backup_ips,
                                    @"enable_storage_optimizer" : [NSNumber numberWithBool:NO]};//@"dc_host_list" : @[@"a.gochat8.com",@"b.gochat8.com",@"c.gochat8.com"],
         ChatLog(@"配置paramDic : %@",paramDic);
         NSDictionary *funQuery = @{@"@type" : @"setTdlibParameters",

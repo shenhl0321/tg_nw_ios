@@ -36,23 +36,31 @@ static inline BOOL Battling() {
 //Go Chat itunes app id
 #define APP_ID                                  @""
 //接口定义
-#define KHostApiAddress                         @"http://tg.uukkim.cc"
+#define KHostApiAddress                         [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@""]
+//@"http://tg.uukkim.cc"
 //隐私协议
-#define KHostPrivacyAddress                     @"http://tg.uukkim.cc/16835.html"
+#define KHostPrivacyAddress                     [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/16835.html"];
+//@"http://tg.uukkim.cc/16835.html"
 //用户协议
-#define KHostUserAgreementAddress               @"http://tg.uukkim.cc/11432.html"
+#define KHostUserAgreementAddress               [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/11432.html"]
+//@"http://tg.uukkim.cc/11432.html"
 //官网
-#define KHostAddress                            @"http://tg.uukkim.cc"
+#define KHostAddress                            [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@""]
+//@"http://tg.uukkim.cc"
 //投诉
-#define KHostEReport                            @"http://tg.uukkim.cc/tousu.php"
+#define KHostEReport                            [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/tousu.php"]
+//@"http://tg.uukkim.cc/tousu.php"
 
-#define KGroupLinkHostAddress                   @"http://tg.uukkim.cc/joinchat?link="
+#define KGroupLinkHostAddress                   [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/joinchat?link="]
+//@"http://tg.uukkim.cc/joinchat?link="
 //分享
-#define KShareHostAddress                       @"http://tg.uukkim.cc/user/share"
+#define KShareHostAddress                       [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/user/share"]
+//@"http://tg.uukkim.cc/user/share"
 //注册
-#define KRegisterHostAddress                    @"http://tg.uukkim.cc/user/appregister"
+#define KRegisterHostAddress                    [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/user/appregister"]
+//@"http://tg.uukkim.cc/user/appregister"
 //TG请求域名
-#define TDLib_Hosts @[@"tg.uukkim.cc"]
+//#define TDLib_Hosts @[@"tg.uukkim.cc"]
 
 
 //系统公告userid

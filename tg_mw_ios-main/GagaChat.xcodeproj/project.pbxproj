@@ -186,6 +186,7 @@
 		57B9FCC1288C2391007678CC /* CZGroupQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57B9FCC6288C2391007678CC /* CZGroupQRCodeViewController.xib */; };
 		57CD5B85289388F200D6A219 /* SHSDKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CD5B83289388F200D6A219 /* SHSDKFoundation.framework */; };
 		57CD5B89289388F200D6A219 /* SHLogReportSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CD5B84289388F200D6A219 /* SHLogReportSDK.framework */; };
+		B32A9D092C625BA60010B3D4 /* NetworkManage.m in Sources */ = {isa = PBXBuildFile; fileRef = B32A9D082C625BA60010B3D4 /* NetworkManage.m */; };
 		B3D9149F2C5F3FD5000D02A5 /* libtdcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D9149E2C5F3FD5000D02A5 /* libtdcore.a */; };
 		B402C13C2757C54D00CE92E9 /* MNNavPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = B402C13B2757C54D00CE92E9 /* MNNavPageController.m */; };
 		B402C1512757CE3A00CE92E9 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = B402C13F2757CE3A00CE92E9 /* WMPageController.m */; };
@@ -1484,6 +1485,8 @@
 		57CD5B83289388F200D6A219 /* SHSDKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SHSDKFoundation.framework; sourceTree = "<group>"; };
 		57CD5B84289388F200D6A219 /* SHLogReportSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SHLogReportSDK.framework; sourceTree = "<group>"; };
 		68123E03BFC6640DEEC4C648 /* Pods-GoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoChat.release.xcconfig"; path = "Target Support Files/Pods-GoChat/Pods-GoChat.release.xcconfig"; sourceTree = "<group>"; };
+		B32A9D072C625BA60010B3D4 /* NetworkManage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManage.h; sourceTree = "<group>"; };
+		B32A9D082C625BA60010B3D4 /* NetworkManage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManage.m; sourceTree = "<group>"; };
 		B3D9149E2C5F3FD5000D02A5 /* libtdcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libtdcore.a; sourceTree = "<group>"; };
 		B402C13A2757C54D00CE92E9 /* MNNavPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNNavPageController.h; sourceTree = "<group>"; };
 		B402C13B2757C54D00CE92E9 /* MNNavPageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNNavPageController.m; sourceTree = "<group>"; };
@@ -7167,6 +7170,8 @@
 				D38A8F12277D3DE500A88F9E /* UIView+GradientBackground.m */,
 				D38A8F21277D3DE600A88F9E /* UIView+ScreensShot.h */,
 				D38A8F11277D3DE500A88F9E /* UIView+ScreensShot.m */,
+				B32A9D072C625BA60010B3D4 /* NetworkManage.h */,
+				B32A9D082C625BA60010B3D4 /* NetworkManage.m */,
 			);
 			name = Common;
 			path = GoChat/CoreSource/Common;
@@ -9861,6 +9866,7 @@
 				D38A8FB2277D3DFC00A88F9E /* TZImagePickerController.m in Sources */,
 				B45B577C278537E0005B64A1 /* VideoThumbnailStore.m in Sources */,
 				0A3B3CDA29C5BE6D00395B17 /* LOTAsset.m in Sources */,
+				B32A9D092C625BA60010B3D4 /* NetworkManage.m in Sources */,
 				D38A7D0A2789E36600AF16D2 /* HXPhotoPreviewViewCell.m in Sources */,
 				ECE3463627ECC01700AB5BBB /* YBPopupMenu.m in Sources */,
 				18F0808F27C8730B00BCAD4B /* TF_SecreatChatTipV.m in Sources */,

@@ -74,6 +74,7 @@
 #endif
 
 #import "AppDelegate.h"
+#import "NetworkManage.h"
 #import "PathConstant.h"
 #import "ConfigDef.h"
 #import "AFNetworking.h"
@@ -126,6 +127,7 @@
 #import "CallInfo.h"
 #import "TabExMenuInfo.h"
 #import "AppConfigInfo.h"
+
 #import "DiscoverMenuInfo.h"
 #import "UserInfo.h"
 #import "CallManager.h"
