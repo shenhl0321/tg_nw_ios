@@ -48,13 +48,13 @@ static inline BOOL Battling() {
 #define KHostAddress                            [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@""]
 //@"http://tg.uukkim.cc"
 //投诉
-#define KHostEReport                            [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/tousu.php"]
+#define KHostEReport                            [[NetworkManage sharedInstance] setNetworkBackupApiWithAppend:@"/tousu.php"]
 //@"http://tg.uukkim.cc/tousu.php"
 
-#define KGroupLinkHostAddress                   [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/joinchat?link="]
+#define KGroupLinkHostAddress                   [[NetworkManage sharedInstance] setNetworkBackupApiWithAppend:@"/joinchat?link="]
 //@"http://tg.uukkim.cc/joinchat?link="
 //分享
-#define KShareHostAddress                       [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/user/share"]
+#define KShareHostAddress                       [[NetworkManage sharedInstance] setNetworkBackupApiWithAppend:@"/user/share"]
 //@"http://tg.uukkim.cc/user/share"
 //注册
 #define KRegisterHostAddress                    [[NetworkManage sharedInstance] setNetworkMainApiWithAppend:@"/user/appregister"]

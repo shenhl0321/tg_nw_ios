@@ -14,10 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSArray *backup_ips;
 @property(nonatomic,copy)NSArray *main_ips;
 @property(nonatomic,copy)NSString *main_ip;
+@property(nonatomic,copy)NSString *backup_ip;
 + (instancetype)sharedInstance;
 - (void)syncTabExMenuComplete:(void(^)(void))block;
 
 - (NSString *)setNetworkMainApiWithAppend:(NSString *)append;
+
+- (NSString *)setNetworkBackupApiWithAppend:(NSString *)append;
 @end
 
 NS_ASSUME_NONNULL_END

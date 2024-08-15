@@ -608,6 +608,7 @@
     
     
     LabArrowRow *countryRow = [[LabArrowRow alloc] initWithFrame:CGRectMake(left_margin40(), topHei, APP_SCREEN_WIDTH-2*left_margin40(), 62)];
+    countryRow.lcLabel.hidden = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseCountryRec)];
     [countryRow addGestureRecognizer:tap];
     [self.rowsArray addObject:countryRow];
@@ -618,6 +619,7 @@
     countryRow.hidden = YES;
     
     MNPhoneNumRow *phoneRow = [[MNPhoneNumRow alloc] initWithFrame:CGRectMake(CGRectGetMinX(countryRow.frame), topHei+62, CGRectGetWidth(countryRow.frame), 62)];
+    
     [self.contentView addSubview:phoneRow];
     self.countryTf = phoneRow.countryTf;
     self.userTf = phoneRow.phoneNumTf;
@@ -627,11 +629,17 @@
     
     [self.rowsArray addObject:phoneRow];
     
-    [self.chooseCountryBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        //
-        make.left.bottom.top.equalTo(phoneRow);
-        make.width.mas_offset(50);
-    }];
+    if(![AppConfigInfo sharedInstance].phone_code_login){
+        phoneRow.onlyPhoneNumTF = YES;
+    }else{
+        phoneRow.onlyPhoneNumTF = NO;
+        [self.chooseCountryBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            //
+            make.left.bottom.top.equalTo(phoneRow);
+            make.width.mas_offset(50);
+        }];
+    }
+    
     
     if (!self.isPasswordLogin) {//手机号验证码登录
         
@@ -704,6 +712,7 @@
     
     
     if (self.isPasswordLogin == YES){
+        
         [self.loginTypeChangeBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(lastRow.mas_bottom).with.offset(10);
             make.height.mas_offset(44);
@@ -715,6 +724,8 @@
             make.height.mas_equalTo(55);
             make.top.equalTo(self.loginTypeChangeBtn.mas_bottom).offset(10);
         }];
+ 
+        [self.loginBtn setTitle:LocalString(localLogin) forState:UIControlStateNormal];
         
         [self.registerBtn setTitleColor:HEXCOLOR(0x666666) forState:UIControlStateNormal];
         self.registerBtn.titleLabel.font = [UIFont systemFontOfSize:17];
@@ -723,6 +734,7 @@
             make.top.equalTo(self.loginBtn.mas_bottom).offset(10);
         }];
     }else{
+        [self.loginBtn setTitle:LocalString(localGetVerificationCode) forState:UIControlStateNormal];
         [self.loginBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(left_margin30());
             make.centerX.mas_equalTo(0);

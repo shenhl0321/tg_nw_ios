@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UITextField *countryTf;
 @property (nonatomic, strong) UITextField *phoneNumTf;
 @property (strong, nonatomic) UIImageView *imageV;
+@property (assign, nonatomic) BOOL onlyPhoneNumTF;
 @end
 
 NS_ASSUME_NONNULL_END

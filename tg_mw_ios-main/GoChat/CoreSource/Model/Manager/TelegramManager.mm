@@ -1355,6 +1355,7 @@ static TelegramManager *g_TelegramManager = nil;
 //        NSNumber * useNetIndex = [NSNumber numberWithInt:0];
         
         NSString *backup_ip =[NetworkManage sharedInstance].backup_ips[[useNetIndex intValue]];
+        [NetworkManage sharedInstance].backup_ip = backup_ip;
         NSDictionary *paramDic = @{@"database_directory" : data_directory,
                                    //@"files_directory" : @""//不设置，则使用database_directory
                                    @"use_file_database" : [NSNumber numberWithBool:YES],
@@ -7720,7 +7721,13 @@ static TelegramManager *g_TelegramManager = nil;
                         NSDictionary *valueDic = [itemDic objectForKey:@"value"];
                         BOOL can_see_group_setting = [[valueDic objectForKey:@"value"] boolValue];
                         info.can_see_group_setting = can_see_group_setting;
+                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"group_chat_forbidden"]) {
+                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
+                        BOOL group_chat_forbidden = [[valueDic objectForKey:@"value"] boolValue];
+                        info.group_chat_forbidden = group_chat_forbidden;
                     }
+                    
+                    
                     
                     
                 }

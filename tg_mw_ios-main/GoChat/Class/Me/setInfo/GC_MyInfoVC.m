@@ -232,16 +232,16 @@
         cell.contentLab.text = IsStrEmpty([UserInfo shareInstance].username)==YES?@"未完善":[UserInfo shareInstance].username;
     }else if ([text isEqualToString:@"电话号码".lv_localized]){
        // NSString *phone = [UserInfo shareInstance].phone_number;
-        if([UserInfo shareInstance].phone_number.length == 11){
-            NSString *phone = [UserInfo shareInstance].phone_number;
+        if([UserInfo shareInstance].phone_number.length >= 11){
+            NSString *phone;
+            if([[UserInfo shareInstance].phone_number hasPrefix:@"86"]){
+                phone = [[UserInfo shareInstance].phone_number substringWithRange:NSMakeRange(2, [UserInfo shareInstance].phone_number.length - 2)];
+            }
             NSString *withStr = @"*****";
             NSInteger fromIndex = 3;
             NSRange range = NSMakeRange(fromIndex,  withStr.length);
             NSString *phoneNumber = [phone stringByReplacingCharactersInRange:range  withString:withStr];
-
-            if(![phone hasPrefix:@"+"])
-                phone = [NSString stringWithFormat:@"+%@", phone];
-            cell.contentLab.text = phone;
+            cell.contentLab.text = phoneNumber;
         }else{
             cell.contentLab.text = @"未填写";
         }

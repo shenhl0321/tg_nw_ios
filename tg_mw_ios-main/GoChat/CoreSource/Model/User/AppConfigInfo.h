@@ -78,10 +78,10 @@
 //投诉功能
 @property (nonatomic, assign) BOOL can_see_complaint;
 
-
-
 //第四个需求
 @property (nonatomic, assign) BOOL can_see_group_setting;
+
+@property (nonatomic, assign) BOOL group_chat_forbidden;
                             
 
 + (instancetype)sharedInstance;

@@ -542,12 +542,12 @@
     if (self.chatRecordDTO.messageType == MessageType_Text) {
         [menuItems addObject:[ChatMenu menuWithTitle:@"翻译".lv_localized icon:@"translation" action:@selector(textTranslate:)]];
     }
-    if (self.chatRecordDTO.messageType == MessageType_Audio) {
-        [menuItems addObject:[ChatMenu menuWithTitle:@"转文字".lv_localized icon:@"Turn_text" action:@selector(voiceTransfer:)]];
-    }
-    if (self.chatRecordDTO.messageType == MessageType_Voice) {
-        [menuItems addObject:[ChatMenu menuWithTitle:@"转文字".lv_localized icon:@"Turn_text" action:@selector(voiceTransfer:)]];
-    }
+//    if (self.chatRecordDTO.messageType == MessageType_Audio) {
+//        [menuItems addObject:[ChatMenu menuWithTitle:@"转文字".lv_localized icon:@"Turn_text" action:@selector(voiceTransfer:)]];
+//    }
+//    if (self.chatRecordDTO.messageType == MessageType_Voice) {
+//        [menuItems addObject:[ChatMenu menuWithTitle:@"转文字".lv_localized icon:@"Turn_text" action:@selector(voiceTransfer:)]];
+//    }
 
     
     

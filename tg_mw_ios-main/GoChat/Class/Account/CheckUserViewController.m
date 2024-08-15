@@ -51,6 +51,13 @@
         make.centerY.mas_equalTo(-40);
     }];
     
+    if([NetworkManage sharedInstance].main_ip != nil){
+        self.timer = 0;
+        [TelegramManager.shareInstance reInitTdlib];
+        [self configTd];
+        return;
+    }
+    
     [self configNetwork];
     
     self.taskName = [TF_Timer execTask:^{
@@ -96,7 +103,7 @@
         self.pingTester.delegate = nil;
     }
     /// 循环了一圈都ping不同，弹窗提示
-    if (self.pingCount == [NetworkManage sharedInstance].backup_ips.count - 1) {
+    if (self.pingCount == [NetworkManage sharedInstance].backup_ips.count) {
         NSString *message = @"暂时无法连接到服务器，请稍后重试".lv_localized;
         self.pingCount = 0;
         [self pingHost];

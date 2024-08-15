@@ -62,6 +62,7 @@
     AppConfigInfo *info = [AppConfigInfo sharedInstance];
     if (info.register_need_phone_code) {
         MNPhoneNumRow *phoneNumRow = [[MNPhoneNumRow alloc] init];
+        phoneNumRow.onlyPhoneNumTF = NO;
         self.phoneNumTf = phoneNumRow.phoneNumTf;
         [self.phoneNumTf addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
         self.countryCodeTf = phoneNumRow.countryTf;
@@ -70,12 +71,13 @@
         self.countryCodeTf.placeholder = LocalString(localCountryCode);
         self.countryCodeTf.text = [self.countryCode stringByReplacingOccurrencesOfString:@"+" withString:@""];
 //        [self.countryCodeTf addTarget:self action:@selector(touchUpInSideCountryCodeTf:) forControlEvents:UIControlEventEditingDidBegin];
-      
+
         [self.rowsArray addObject:phoneNumRow];
-        ////    请输入手机号码
+//        ////    请输入手机号码
 //        MNPhoneVerCodeRow *verCodeRow = [[MNPhoneVerCodeRow alloc] init];
 //        self.msgCodeTf = verCodeRow.tf;
 //        self.msgCodeTf.placeholder = LocalString(localPlsEnterVerificationCode);
+//
 //        [verCodeRow.retCodeBtn addTarget:self action:@selector(retCodeSendAction) forControlEvents:UIControlEventTouchUpInside];
 //        [self.rowsArray addObject:verCodeRow];
     }
@@ -178,7 +180,15 @@
             return;
         }else{
             [paramsDic setObject:[NSString stringWithFormat:@"%@%@", [self.countryCode stringByReplacingOccurrencesOfString:@"+" withString:@""], phonenumer] forKey:@"phoneNumber"];
+            
         }
+//        NSString *msgCode = self.msgCodeTf.text;
+//        if(!msgCode || msgCode.length < 1){
+//            [UserInfo showTips:self.view des:LocalString(localEnterSmsCode)];
+//            return;
+//        }else{
+//            [paramsDic setObject:self.msgCodeTf.text forKey:@"code"];
+//        }
     }
     
     NSString *useraccount = self.userNameTf.text;
@@ -264,6 +274,89 @@
     }];
 }
 
+
+- (void)retCodeSendAction{
+    NSString *phonenumer = self.phoneNumTf.text;
+    if (!phonenumer || phonenumer.length < 1) {
+        [UserInfo showTips:self.view des:LocalString(localPlsEnterCorrectPhoneNum)];
+        return;
+    }
+    
+    NSMutableDictionary *paramsDic = [NSMutableDictionary dictionary];
+    [paramsDic setObject:[NSNumber numberWithBool:YES] forKey:@"isSignup"];
+    [paramsDic setObject:[NSString stringWithFormat:@"%@%@", [self.countryCode stringByReplacingOccurrencesOfString:@"+" withString:@""], phonenumer] forKey:@"phoneNumber"];
+    
+//    return;
+//    NSString *newPhoneNumber = [NSString stringWithFormat:@"%@%@",self.countryCode,phonenumer];
+//    newPhoneNumber = [newPhoneNumber stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    [UserInfo show];
+    [[TelegramManager shareInstance] setAuthenticationPhoneNumber:[CZCommonTool dictionaryToJson:paramsDic] result:^(NSDictionary *request, NSDictionary *response) {
+        [UserInfo dismiss];
+        
+        [[TelegramManager shareInstance] setOnlineState:@"true" result:^(NSDictionary *request, NSDictionary *response) {
+        } timeout:^(NSDictionary *request) {
+            
+        }];
+        if(![TelegramManager isResultOk:response])
+        {
+            //{"@type":"error","code":400,"message":"PASSWORD_VERIFY_INVALID","@extra":4}
+            //USER_PASSWORD_NEEDED 必须输入密码
+//                        USERNAME_NOT_EXIST 用户名不存在
+//                        USER_PASSWORD_NOT_SET 用户未设置密码
+//                        PASSWORD_VERIFY_INVALID 密码校验错误
+//                        IP_ADDRESS_BANNED 登录ip被禁用
+//                        USER_BINDED_IP_ADDRESS 登录用户已经绑定ip
+            NSString *errorMsg = [TelegramManager errorMsg:response];
+            if([@"400_IP_ADDRESS_BANNED" isEqualToString:errorMsg])
+            {
+                [UserInfo showTips:self.view des:@"登录ip被禁用".lv_localized];
+                return;
+            }
+            if([@"400_USER_BINDED_IP_ADDRESS" isEqualToString:errorMsg])
+            {
+                [UserInfo showTips:self.view des:@"登录用户已经绑定ip".lv_localized];
+                return;
+            }
+            if([@"400_PASSWORD_VERIFY_INVALID" isEqualToString:errorMsg]){
+                [UserInfo showTips:self.view des:@"密码无效".lv_localized];
+                return;
+            }
+            if([@"400_INVITE_CODE_INVALID" isEqualToString:errorMsg]){
+                [UserInfo showTips:self.view des:@"账号未注册".lv_localized];
+                return;
+            }
+            if([@"400_PHONE_NUMBER_BANNED" isEqualToString:errorMsg]){
+                [UserInfo showTips:self.view des:@"账号已封禁，请联系客服".lv_localized];
+                return;
+            }
+            if([@"406_PHONE_PASSWORD_FLOOD" isEqualToString:errorMsg])
+            {
+                AppConfigInfo *config = [AppConfigInfo sharedInstance];
+                NSInteger time = config.password_flood_interval;
+                NSInteger hour = time/3600;
+                NSInteger min = time/60;
+                NSString *timeStr;
+                if (hour > 0) {
+                    min = (time % 3600)/60;
+                    timeStr = [NSString stringWithFormat:@"%ld%@%ld%@", hour,@"小时".lv_localized, min, @"分钟".lv_localized];
+                } else if (min > 0){
+                    timeStr = [NSString stringWithFormat:@"%ld%@", min, @"分钟".lv_localized];
+                } else {
+                    timeStr = [NSString stringWithFormat:@"%ld%@", time, @"秒钟".lv_localized];
+                }
+                
+                [UserInfo showTips:self.view des:[NSString stringWithFormat:@"密码错误次数过多，请%@后再试".lv_localized, timeStr]];
+                return;
+            }
+            [UserInfo showTips:self.view des:@"登录账号或密码错误".lv_localized];
+            return;
+        }
+    } timeout:^(NSDictionary *request) {
+        [UserInfo dismiss];
+        NSLog(@"sendCode timeout......");
+        [UserInfo showTips:self.view des:@"请求超时，请检查网络是否正常".lv_localized];
+    }];
+}
 #pragma mark BusinessListenerProtocol
 - (void)processBusinessNotify:(int)notifcationId withInParam:(id)inParam
 {

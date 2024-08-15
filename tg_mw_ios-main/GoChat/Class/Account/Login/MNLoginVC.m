@@ -487,6 +487,7 @@
         [self.contentView addSubview:countryRow];
         self.countryLabel = countryRow.lcLabel;
         MNPhoneNumRow *phoneRow = [[MNPhoneNumRow alloc] initWithFrame:CGRectMake(CGRectGetMinX(countryRow.frame), 100+62, CGRectGetWidth(countryRow.frame), 62)];
+        phoneRow.onlyPhoneNumTF = NO;
         [self.contentView addSubview:phoneRow];
         self.countryTf = phoneRow.countryTf;
         self.userTf = phoneRow.phoneNumTf;

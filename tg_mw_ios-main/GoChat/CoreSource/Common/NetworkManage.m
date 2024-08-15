@@ -9,7 +9,9 @@
 
 @implementation NetworkManage
 
-#define app_main_ips @[@"dr1n4.com",@"4s1ik.com",@"h6kfx.com"]
+#define app_main_ips @[@"chat.uukkim.cc:7070"]
+
+//#define app_main_ips @[@"dr1n4.com",@"4s1ik.com",@"h6kfx.com"]
 
 static NetworkManage *sharedInstance = nil;
 + (instancetype)sharedInstance{
@@ -97,6 +99,13 @@ static NetworkManage *sharedInstance = nil;
         self.main_ip = [NSString stringWithFormat:@"http://%@",self.main_ip];
     }
     return [NSString stringWithFormat:@"%@%@",self.main_ip,append];
+}
+
+- (NSString *)setNetworkBackupApiWithAppend:(NSString *)append{
+    if(![self.backup_ip hasPrefix:@"http"]){
+        self.backup_ip = [NSString stringWithFormat:@"http://%@",self.backup_ip];
+    }
+    return [NSString stringWithFormat:@"%@%@",self.backup_ip,append];
 }
 
 @end
