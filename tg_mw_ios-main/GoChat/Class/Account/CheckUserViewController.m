@@ -51,6 +51,22 @@
         make.centerY.mas_equalTo(-40);
     }];
     
+    if(AppLaunchPageType1 == 1){
+        AuthUserInfo *curUser = [[AuthUserManager shareInstance] currentAuthUser];
+        if (curUser == nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+                [((AppDelegate*)([UIApplication sharedApplication].delegate)) getApplicationConfigSettingLoginStyle];
+                
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoHomeView];
+            });
+        }
+    }
+    
+    
     if([NetworkManage sharedInstance].main_ip != nil){
         self.timer = 0;
         [TelegramManager.shareInstance reInitTdlib];
@@ -79,19 +95,13 @@
     AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
     [NSUserDefaults.standardUserDefaults setObject:@(8) forKey:@"UseNetIndex"];
     appDelegate.pingHost = YES;
+    
+ 
+    
     MJWeakSelf;
     [[NetworkManage sharedInstance] syncTabExMenuComplete:^{
         appDelegate.pingHost = YES;
         [weakSelf pingHost];
-        //    if (appDelegate.isPingHost) {
-        //        
-        //        
-        //        [TelegramManager.shareInstance reInitTdlib];
-        //        [self configTd];
-        //    } else {
-        //        appDelegate.pingHost = YES;
-        //        [self pingHost];
-        //    }
     }];
 }
 
@@ -131,13 +141,18 @@
     if ([UserInfo shareInstance]._id==0) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-            [((AppDelegate*)([UIApplication sharedApplication].delegate)) getApplicationConfigSettingLoginStyle];
+            if(AppLaunchPageType1 != 1){
+                [((AppDelegate*)([UIApplication sharedApplication].delegate)) getApplicationConfigSettingLoginStyle];
+            }
+            
         });
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
            
             [[TelegramManager shareInstance] getApplicationConfigWithResultBlock:^(NSDictionary *request, NSDictionary *response, id obj) {
-                [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoHomeView];
+                if(AppLaunchPageType1 != 1){
+                    [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoHomeView];
+                }
             } timeout:^(NSDictionary *request) {
                 
             }];

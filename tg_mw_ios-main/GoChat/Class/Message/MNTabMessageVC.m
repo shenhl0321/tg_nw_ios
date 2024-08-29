@@ -219,9 +219,21 @@
     GoUserConnectionState state = [TelegramManager shareInstance].getUserConnectionState;
     switch (state) {
         case GoUserConnectionState_StateReady:
+        {
             self.logoLabel.text = self.logoString;
             //连接成功之后抛通知，如果再会话页面且消息列表为空就再拉取一次
+            AuthUserInfo *curUser = [[AuthUserManager shareInstance] currentAuthUser];
+            GoUserConnectionState state = [TelegramManager shareInstance].getUserConnectionState;
+            if(curUser != nil && state != GoUserConnectionState_Connecting ){
+                [[TelegramManager shareInstance] setTdlibParameters:curUser.data_directoryPath result:^(NSDictionary *request, NSDictionary *response) {
+                    [self loadChatListIds];
+                } timeout:^(NSDictionary *request) {
+                    
+                    
+                }];
+            }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"NetWork_ConnectSuccess" object:nil];
+        }
             break;
         case GoUserConnectionState_Updating:
             self.logoLabel.text = @"更新中...".lv_localized;

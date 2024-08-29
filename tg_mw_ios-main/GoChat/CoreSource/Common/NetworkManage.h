@@ -9,6 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+#define AppLaunchPageType1 1
+#define AppLaunchPageType2 1
+
+
 @interface NetworkManage : NSObject
 
 @property(nonatomic,copy)NSArray *backup_ips;

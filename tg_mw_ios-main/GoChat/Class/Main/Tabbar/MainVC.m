@@ -606,7 +606,8 @@
 - (void)configTd
 {
     AuthUserInfo *curUser = [[AuthUserManager shareInstance] currentAuthUser];
-    if(curUser != nil)
+    GoUserConnectionState state = [TelegramManager shareInstance].getUserConnectionState;
+    if(curUser != nil && state != GoUserConnectionState_Connecting )
     {
         [[TelegramManager shareInstance] setTdlibParameters:curUser.data_directoryPath result:^(NSDictionary *request, NSDictionary *response) {
         } timeout:^(NSDictionary *request) {
