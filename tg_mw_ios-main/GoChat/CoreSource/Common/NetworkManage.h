@@ -10,8 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-#define AppLaunchPageType1 1
-#define AppLaunchPageType2 1
+#define AppLaunchPageType1 0
+#define AppLaunchPageType2 0
 
 
 @interface NetworkManage : NSObject

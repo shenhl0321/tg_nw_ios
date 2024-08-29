@@ -7705,10 +7705,6 @@ static TelegramManager *g_TelegramManager = nil;
                         NSDictionary *valueDic = [itemDic objectForKey:@"value"];
                         BOOL can_see_private_chat = [[valueDic objectForKey:@"value"] boolValue];
                         info.can_see_private_chat = can_see_private_chat;
-                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_private_chat"]) {
-                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
-                        BOOL can_see_private_chat = [[valueDic objectForKey:@"value"] boolValue];
-                        info.can_see_private_chat = can_see_private_chat;
                     }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_share"]) {
                         NSDictionary *valueDic = [itemDic objectForKey:@"value"];
                         BOOL can_see_share = [[valueDic objectForKey:@"value"] boolValue];
@@ -7725,11 +7721,15 @@ static TelegramManager *g_TelegramManager = nil;
                         NSDictionary *valueDic = [itemDic objectForKey:@"value"];
                         BOOL group_chat_forbidden = [[valueDic objectForKey:@"value"] boolValue];
                         info.group_chat_forbidden = group_chat_forbidden;
+                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_explore_bar"]) {
+                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
+                        BOOL can_see_explore_bar = [[valueDic objectForKey:@"value"] boolValue];
+                        info.can_see_explore_bar = can_see_explore_bar;
+                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_personal_qrcode"]) {
+                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
+                        BOOL can_see_personal_qrcode = [[valueDic objectForKey:@"value"] boolValue];
+                        info.can_see_personal_qrcode = can_see_personal_qrcode;
                     }
-                    
-                    
-                    
-                    
                 }
                 if(resultBlock != nil)
                 {
