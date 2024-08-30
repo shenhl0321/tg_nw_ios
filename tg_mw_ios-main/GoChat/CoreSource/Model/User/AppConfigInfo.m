@@ -15,6 +15,8 @@ static AppConfigInfo *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc]init];
+        sharedInstance.can_see_explore_bar = [[NSUserDefaults standardUserDefaults] boolForKey:@"can_see_explore_bar"];
+        sharedInstance.can_see_discovery_bar = [[NSUserDefaults standardUserDefaults] boolForKey:@"can_see_discovery_bar"];
     });
     return sharedInstance;
 }

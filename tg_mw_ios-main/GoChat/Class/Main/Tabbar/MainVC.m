@@ -94,6 +94,8 @@
     if (isShowGif == YES){
         [self initTabbarGifView];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView) name:@"ApplicationConfigNotice"  object:nil];
 }
 - (void)initTabbarGifView{
 //    [self.homeAnimationView setAnimationNamed:@"home_s"];
@@ -288,12 +290,11 @@
             }
         }else if (i == 2){
             [item addSubview:self.centerImageV];
-            
             [self.centerImageV mas_makeConstraints:^(MASConstraintMaker *make) {
                 //
                 make.centerX.equalTo(item);
                 make.centerY.equalTo(item).offset(-gitTop);
-                make.width.height.mas_offset(gitWH-5);
+                make.width.height.mas_offset(22);
             }];
         }else if (i == 3) {
             if (isShowGif == YES){
@@ -328,6 +329,7 @@
                 }];
             }
         }
+ 
         [self.itemsArr addObject:item];
     }
     
@@ -473,21 +475,34 @@
     
     if ([AppConfigInfo sharedInstance].can_see_explore_bar == true){
         NSInteger index = 0;
-        CGFloat itemWidth = APP_SCREEN_WIDTH/5.0;
+        CGFloat itemWidth;
+        if([AppConfigInfo sharedInstance].can_see_discovery_bar == true){
+            itemWidth = APP_SCREEN_WIDTH/5.0;
+        }else{
+            itemWidth = APP_SCREEN_WIDTH/4.0;
+        }
         CGFloat itemHeight = APP_TAB_BAR_HEIGHT2();
         for (MSTabbarItem *item in self.itemsArr) {
             item.hidden = NO;
-            item.frame = CGRectMake(itemWidth*index, 0, itemWidth, itemHeight);
+            if([AppConfigInfo sharedInstance].can_see_discovery_bar == false && index > 2){
+                if(index == 3){
+                    item.hidden = YES;
+                }else{
+                    item.frame = CGRectMake(itemWidth*3, 0, itemWidth, itemHeight);
+                }
+            }else{
+                item.frame = CGRectMake(itemWidth*index, 0, itemWidth, itemHeight);
+            }
+            
             index++;
         }
         
         if (self.itemsArr.count>=2) {
             MSTabbarItem *item = self.itemsArr[2];
             item.hidden = NO;
-            if(curTabExMenuInfo != nil && [curTabExMenuInfo isValid])
-            {
+            if(curTabExMenuInfo != nil && [curTabExMenuInfo isValid]){
                 [item setTitle:curTabExMenuInfo.site_name forState:UIControlStateNormal];
-                [self.centerImageV sd_setImageWithURL:[NSURL URLWithString:curTabExMenuInfo.site_logo] placeholderImage:[UIImage imageNamed:@""]];
+                [self.centerImageV sd_setImageWithURL:[NSURL URLWithString:curTabExMenuInfo.site_logo] placeholderImage:[UIImage imageNamed:@"TabItemExplore"]];
             }else{
                 [item setTitle:@"探索".lv_localized forState:UIControlStateNormal];
                 [item setImage:[UIImage imageNamed:@"TabItemExplore"] forState:UIControlStateNormal];
@@ -497,18 +512,32 @@
         
     }else{
         NSInteger index = 0;
-        CGFloat itemWidth = APP_SCREEN_WIDTH/4.0;
+        CGFloat itemWidth;
+        if([AppConfigInfo sharedInstance].can_see_discovery_bar == true){
+            itemWidth = APP_SCREEN_WIDTH/4.0;
+        }else{
+            itemWidth = APP_SCREEN_WIDTH/3.0;
+        }
         CGFloat itemHeight = APP_TAB_BAR_HEIGHT2();
         for (MSTabbarItem *item in self.itemsArr) {
             NSInteger i = index;
-            if (i >= 2){
+            if (i > 2){
                 i = index-1;
             }
-             item.frame = CGRectMake(itemWidth*i, 0, itemWidth, itemHeight);
+            
             if (index == 2){
                 item.hidden = YES;
             }else{
                 item.hidden = NO;
+                if([AppConfigInfo sharedInstance].can_see_discovery_bar == false && index > 2){
+                    if(index == 3){
+                        item.hidden = YES;
+                    }else{
+                        item.frame = CGRectMake(itemWidth*2, 0, itemWidth, itemHeight);
+                    }
+                }else{
+                    item.frame = CGRectMake(itemWidth*i, 0, itemWidth, itemHeight);
+                }
             }
             index++;
         }

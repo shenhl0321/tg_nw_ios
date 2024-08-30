@@ -8,7 +8,7 @@
 #import "NetworkManage.h"
 
 @implementation NetworkManage
-
+#define is_http @"http"
 #define app_main_ips @[@"guansheng9922.com"]
 //#define app_main_ips @[@"chat.uukkim.cc:7070"]
 
@@ -51,7 +51,7 @@ static NetworkManage *sharedInstance = nil;
 - (void)appMainIpRequrestWithIndex:(NSInteger)index withBlock:(void(^)(void))block{
     MJWeakSelf
     AFHTTPSessionManager *manager = [self manager];
-    NSString *url = [NSString stringWithFormat:@"http://%@/api/client/ips",app_main_ips[index]];
+    NSString *url = [NSString stringWithFormat:@"%@://%@/api/client/ips",is_http,app_main_ips[index]];
     [manager GET:url parameters:@{} headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //
         NSDictionary *data = responseObject[@"data"];
@@ -74,7 +74,7 @@ static NetworkManage *sharedInstance = nil;
     AFHTTPSessionManager *manager = [self manager];
     NSString *main_ip = weakSelf.main_ips[index];
     if(![main_ip hasPrefix:@"http"]){
-        main_ip = [NSString stringWithFormat:@"http://%@",main_ip];
+        main_ip = [NSString stringWithFormat:@"%@://%@",is_http,main_ip];
     }
     NSString *new_main_ip = [NSString stringWithFormat:@"%@/api/client/ips",main_ip];
     [manager GET:new_main_ip parameters:@{} headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -82,6 +82,8 @@ static NetworkManage *sharedInstance = nil;
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //
         weakSelf.main_ip = main_ip;
+        [[NSUserDefaults standardUserDefaults] setValue:main_ip forKey:@"mainIp"];
+        [[NSUserDefaults standardUserDefaults] setValue:weakSelf.backup_ips forKey:@"backup_ips"];
         block();
         //block();
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -97,14 +99,14 @@ static NetworkManage *sharedInstance = nil;
 
 - (NSString *)setNetworkMainApiWithAppend:(NSString *)append{
     if(![self.main_ip hasPrefix:@"http"]){
-        self.main_ip = [NSString stringWithFormat:@"http://%@",self.main_ip];
+        self.main_ip = [NSString stringWithFormat:@"%@://%@",is_http,self.main_ip];
     }
     return [NSString stringWithFormat:@"%@%@",self.main_ip,append];
 }
 
 - (NSString *)setNetworkBackupApiWithAppend:(NSString *)append{
     if(![self.backup_ip hasPrefix:@"http"]){
-        self.backup_ip = [NSString stringWithFormat:@"http://%@",self.backup_ip];
+        self.backup_ip = [NSString stringWithFormat:@"%@://%@",is_http,self.backup_ip];
     }
     return [NSString stringWithFormat:@"%@%@",self.backup_ip,append];
 }

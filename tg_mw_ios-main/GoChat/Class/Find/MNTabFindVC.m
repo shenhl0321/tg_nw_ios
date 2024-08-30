@@ -121,11 +121,16 @@
 
 - (void)reloadMessage {
     [TimelineHelper queryUnreadCountCompletion:^(NSInteger count) {
-        NSDictionary *first = self.dataArr.firstObject;
+        id first = self.dataArr.firstObject;
+        if([first isKindOfClass:[DiscoverMenuInfo class]])
         if (first) {
-            NSMutableDictionary *list = first.mutableCopy;
-            list[@"num"] = @(count);
-            [self.dataArr replaceObjectAtIndex:0 withObject:list.copy];
+            [self.dataArr replaceObjectAtIndex:0 withObject:first];
+        }else{
+            if(first){
+                NSMutableDictionary *list = ((NSDictionary *)first).mutableCopy;
+                list[@"num"] = @(count);
+                [self.dataArr replaceObjectAtIndex:0 withObject:list.copy];
+            }
         }
         [self.tableView reloadData];
     }];

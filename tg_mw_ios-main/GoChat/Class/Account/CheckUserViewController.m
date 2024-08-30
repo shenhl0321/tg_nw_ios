@@ -40,7 +40,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetClicent) name:@"ResetClicent" object:nil];
     
     [self.customNavBar removeFromSuperview];
-
+    
     [self.view addSubview:self.bgImageView];
     [self.view addSubview:self.iconImageView];
     [self.bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -53,6 +53,7 @@
     
     if(AppLaunchPageType1 == 1){
         AuthUserInfo *curUser = [[AuthUserManager shareInstance] currentAuthUser];
+        [UserInfo show:@"网络连接中..."];
         if (curUser == nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
@@ -74,12 +75,14 @@
         return;
     }
     
+    
+    
     [self configNetwork];
     
     self.taskName = [TF_Timer execTask:^{
         self.timer--;
         ChatLog(@"====%ld", self.timer);
-        if (self.timer == 0) {
+        if (self.timer <= 0) {
             [TF_Timer cancelTask:self.taskName];
             if (self.tdSuccess) {
                 [self goLogin];
@@ -89,6 +92,21 @@
 }
 
 - (void)configNetwork {
+    
+    if(AppLaunchPageType2 == 1){
+        if([[NSUserDefaults standardUserDefaults] valueForKey:@"mainIp"] && [[NSUserDefaults standardUserDefaults] valueForKey:@"UseNetIndex"]){
+            [NetworkManage sharedInstance].main_ip = [[NSUserDefaults standardUserDefaults] valueForKey:@"mainIp"];
+            [NetworkManage sharedInstance].backup_ips = [[NSUserDefaults standardUserDefaults] valueForKey:@"backup_ips"];
+            self.pingCount = 0;
+            NSNumber *num = [[NSUserDefaults standardUserDefaults] objectForKey:@"UseNetIndex"];
+            self.pingIndex = num.intValue;
+            AppDelegate *appDelegate = (AppDelegate*)UIApplication.sharedApplication.delegate;
+           // [NSUserDefaults.standardUserDefaults setObject:@(8) forKey:@"UseNetIndex"];
+            appDelegate.pingHost = YES;
+            [self pingHost];
+            return;
+        }
+    }
     self.pingCount = 0;
     NSNumber *num = [[NSUserDefaults standardUserDefaults] objectForKey:@"UseNetIndex"];
     self.pingIndex = num.intValue;
@@ -96,13 +114,13 @@
     [NSUserDefaults.standardUserDefaults setObject:@(8) forKey:@"UseNetIndex"];
     appDelegate.pingHost = YES;
     
- 
-    
     MJWeakSelf;
     [[NetworkManage sharedInstance] syncTabExMenuComplete:^{
         appDelegate.pingHost = YES;
         [weakSelf pingHost];
     }];
+    
+    
 }
 
 #pragma mark - ping
@@ -148,10 +166,12 @@
         });
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
-           
+            
             [[TelegramManager shareInstance] getApplicationConfigWithResultBlock:^(NSDictionary *request, NSDictionary *response, id obj) {
                 if(AppLaunchPageType1 != 1){
                     [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoHomeView];
+                }else{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ApplicationConfigNotice" object:nil];
                 }
             } timeout:^(NSDictionary *request) {
                 
@@ -192,7 +212,7 @@
             [self resetClicent];
         } else {
             [[TelegramManager shareInstance] setOnlineState:@"true" result:^(NSDictionary *request, NSDictionary *response) {
-               
+                
             } timeout:^(NSDictionary *request) {
             }];
         }
@@ -208,12 +228,12 @@
         if (![TelegramManager isResultOk:response]) {
             //配置失败，系统级错误
             NSLog(@"check DatabaseEncryption fail......");
-//            [self resetClicent];
+            //            [self resetClicent];
         }
     } timeout:^(NSDictionary *request) {
         //超时，系统级错误
         NSLog(@"check DatabaseEncryption timeout......");
-//        [self resetClicent];
+        //        [self resetClicent];
     }];
 }
 
@@ -234,7 +254,7 @@
         {
             //goto home view
             /// 参照安卓，连接成功后在进入首页
-//            [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoHomeView];
+            //            [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoHomeView];
         }
             break;
         case MakeID(EUserManager, EUser_Td_Input_Phone):
@@ -243,29 +263,29 @@
         case MakeID(EUserManager, EUser_Td_Register):
         {
             //goto login view
-//            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-//            [((AppDelegate*)([UIApplication sharedApplication].delegate)) getApplicationConfigSettingLoginStyle];
+            //            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+            //            [((AppDelegate*)([UIApplication sharedApplication].delegate)) getApplicationConfigSettingLoginStyle];
         }
             break;
         case MakeID(EUserManager, EUser_Td_Logout):
         {
             //goto login view
             NSLog(@"开始退出登录_Check");
-//            [[TelegramManager shareInstance] destroy];
+            //            [[TelegramManager shareInstance] destroy];
             //清理数据
-//            [[TelegramManager shareInstance] cleanCurrentData];
-//            [[UserInfo shareInstance] reset];
-//            [[CallManager shareInstance] reset];
-//            [ChatExCacheManager reset];
-//            [[AuthUserManager shareInstance] logout];
-//
-//            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-//            [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoCheckUserView];
+            //            [[TelegramManager shareInstance] cleanCurrentData];
+            //            [[UserInfo shareInstance] reset];
+            //            [[CallManager shareInstance] reset];
+            //            [ChatExCacheManager reset];
+            //            [[AuthUserManager shareInstance] logout];
+            //
+            //            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+            //            [((AppDelegate*)([UIApplication sharedApplication].delegate)) gotoCheckUserView];
             
             //进入鉴权页面
-//            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-//            CheckUserViewController *checkView = [sb instantiateViewControllerWithIdentifier:@"CheckUserView"];
-//            ((AppDelegate*)([UIApplication sharedApplication].delegate)).window.rootViewController = checkView;
+            //            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+            //            CheckUserViewController *checkView = [sb instantiateViewControllerWithIdentifier:@"CheckUserView"];
+            //            ((AppDelegate*)([UIApplication sharedApplication].delegate)).window.rootViewController = checkView;
         }
             break;
         case MakeID(EUserManager, EUser_Td_Closed):
@@ -312,10 +332,10 @@
         _bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:name]];
         _bgImageView.contentMode = UIViewContentModeScaleAspectFill;
         
-//        NSInteger index = arc4random_uniform(2);
-//        _bgImageView = [[UIImageView alloc] init];
-//        [_bgImageView sd_setImageWithURL:[NSURL URLWithString:@"https://jk.douliaoapp.com/get_img?name=app_start_img"]];
-//        _bgImageView.contentMode = UIViewContentModeScaleAspectFill;
+        //        NSInteger index = arc4random_uniform(2);
+        //        _bgImageView = [[UIImageView alloc] init];
+        //        [_bgImageView sd_setImageWithURL:[NSURL URLWithString:@"https://jk.douliaoapp.com/get_img?name=app_start_img"]];
+        //        _bgImageView.contentMode = UIViewContentModeScaleAspectFill;
         
         
     }
@@ -325,7 +345,7 @@
 - (UIImageView *)iconImageView {
     if (!_iconImageView) {
         _iconImageView = [[UIImageView alloc] init];
-//        [_iconImageView sd_setImageWithURL:[NSURL URLWithString:@"https://jk.douliaoapp.com/get_img?name=app_start_img2"]];
+        //        [_iconImageView sd_setImageWithURL:[NSURL URLWithString:@"https://jk.douliaoapp.com/get_img?name=app_start_img2"]];
     }
     return _iconImageView;
 }

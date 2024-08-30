@@ -7725,11 +7725,18 @@ static TelegramManager *g_TelegramManager = nil;
                         NSDictionary *valueDic = [itemDic objectForKey:@"value"];
                         BOOL can_see_explore_bar = [[valueDic objectForKey:@"value"] boolValue];
                         info.can_see_explore_bar = can_see_explore_bar;
+                        [[NSUserDefaults standardUserDefaults] setBool:can_see_explore_bar forKey:@"can_see_explore_bar"];
                     }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_personal_qrcode"]) {
                         NSDictionary *valueDic = [itemDic objectForKey:@"value"];
                         BOOL can_see_personal_qrcode = [[valueDic objectForKey:@"value"] boolValue];
                         info.can_see_personal_qrcode = can_see_personal_qrcode;
+                    }else if ([[itemDic objectForKey:@"key"] isEqualToString:@"can_see_discovery_bar"]) {
+                        NSDictionary *valueDic = [itemDic objectForKey:@"value"];
+                        BOOL can_see_discovery_bar = [[valueDic objectForKey:@"value"] boolValue];
+                        info.can_see_discovery_bar = can_see_discovery_bar;
+                        [[NSUserDefaults standardUserDefaults] setBool:can_see_discovery_bar forKey:@"can_see_discovery_bar"];
                     }
+                
                 }
                 if(resultBlock != nil)
                 {

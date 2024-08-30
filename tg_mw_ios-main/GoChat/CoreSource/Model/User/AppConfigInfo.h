@@ -82,7 +82,7 @@
 @property (nonatomic, assign) BOOL can_see_group_setting;
 
 @property (nonatomic, assign) BOOL group_chat_forbidden;
-                            
+@property (nonatomic, assign) BOOL can_see_discovery_bar;
 
 + (instancetype)sharedInstance;
 + (AppConfigInfo *)getAppConfigInfo;
