@@ -9,8 +9,9 @@
 
 @implementation NetworkManage
 #define is_http @"http"
-#define app_main_ips @[@"guansheng9922.com"]
-//#define app_main_ips @[@"chat.uukkim.cc:7070"]
+
+//#define app_main_ips @[@"guansheng9922.com"]
+#define app_main_ips @[@"chat.uukkim.cc:7070"]
 
 //#define app_main_ips @[@"dr1n4.com",@"4s1ik.com",@"h6kfx.com"]
 
